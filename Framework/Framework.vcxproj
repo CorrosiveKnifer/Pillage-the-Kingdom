@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A63A081C-F174-43A2-803D-AEE64AB9986C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Framework</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\FMOD\inc\;$(SolutionDir)\SDL\SDL2-2.0.5\include\;$(SolutionDir)\SDL\SDL2_image-2.0.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\FMOD\lib\;$(SolutionDir)\SDL\SDL2-2.0.5\lib\x86;$(SolutionDir)\SDL\SDL2_image-2.0.1\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmodl_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\FMOD\inc\;$(SolutionDir)\SDL\SDL2-2.0.5\include\;$(SolutionDir)\SDL\SDL2_image-2.0.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)\FMOD\lib\;$(SolutionDir)\SDL\SDL2-2.0.5\lib\x86;$(SolutionDir)\SDL\SDL2_image-2.0.1\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmodl_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="animatedsprite.h" />
+    <ClInclude Include="autscreen.h" />
+    <ClInclude Include="backbuffer.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="Explosion.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="iniParser.h" />
+    <ClInclude Include="inputhandler.h" />
+    <ClInclude Include="logmanager.h" />
+    <ClInclude Include="map.h" />
+    <ClInclude Include="mapFactory.h" />
+    <ClInclude Include="MapSelectScreen.h" />
+    <ClInclude Include="Mask.h" />
+    <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="normaltroop.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="protectiontroop.h" />
+    <ClInclude Include="screen.h" />
+    <ClInclude Include="sound.h" />
+    <ClInclude Include="soundmanager.h" />
+    <ClInclude Include="sprite.h" />
+    <ClInclude Include="tanktroop.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="texturemanager.h" />
+    <ClInclude Include="tile.h" />
+    <ClInclude Include="Tower.h" />
+    <ClInclude Include="TowerFactory.h" />
+    <ClInclude Include="troop.h" />
+    <ClInclude Include="troopfactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="animatedsprite.cpp" />
+    <ClCompile Include="autscreen.cpp" />
+    <ClCompile Include="backbuffer.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="iniParser.cpp" />
+    <ClCompile Include="inputhandler.cpp" />
+    <ClCompile Include="logmanager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="map.cpp" />
+    <ClCompile Include="mapFactory.cpp" />
+    <ClCompile Include="MapSelectScreen.cpp" />
+    <ClCompile Include="Mask.cpp" />
+    <ClCompile Include="MenuScreen.cpp" />
+    <ClCompile Include="normaltroop.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="protectiontroopcpp.cpp" />
+    <ClCompile Include="sound.cpp" />
+    <ClCompile Include="soundmanager.cpp" />
+    <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="tanktroop.cpp" />
+    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="texturemanager.cpp" />
+    <ClCompile Include="tile.cpp" />
+    <ClCompile Include="Tower.cpp" />
+    <ClCompile Include="TowerFactory.cpp" />
+    <ClCompile Include="troop.cpp" />
+    <ClCompile Include="troopfactory.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
