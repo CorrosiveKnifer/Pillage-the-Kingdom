@@ -1,0 +1,8 @@
+[11:30am - 2:15pm]
+	- Helpped with cleaning code and searched for memory leaks (26 in total). 
+	- [Leaks:] Allowing the texture manager to delete all loaded textures (9 Memory leaks).
+	- [Leaks:] Allowed the current testing data to be deleted (3 Memory leaks).
+	- Added functionality to the map class, to give and create tower coords.
+	- [Bug 004: Map class]
+		- In the rare chance that the randomiser selects the minimum or maximum values (at each random).
+		- Causing towers to share the same coord point.

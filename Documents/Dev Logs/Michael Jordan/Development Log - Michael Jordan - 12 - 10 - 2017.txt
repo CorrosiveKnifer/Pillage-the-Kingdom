@@ -1,0 +1,4 @@
+[10:03am - 12pm]
+	- Implemented the main recursive function to find the track, but encountered a bug.
+	- [Bug 001: Map class]
+		- The GetTile(int x, int y) is returning two different addresses of a tile, although it is given the same parameters.

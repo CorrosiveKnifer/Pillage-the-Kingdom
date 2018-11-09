@@ -1,0 +1,8 @@
+[10:36am - 1:42pm]
+	- imported autScreen.h from my individual assignment.
+	- moved the creation of the backBuffer to the main.
+	- changed the Initialise() method to accept a backBuffer parameter.
+	- Started to use Unique_pointers to navigate the interface easier.
+	- Map now loads a different section of the tile.ini to use different styles of tiles.
+	- Tiles now scale on different screen sizes.
+	- New debug option, to recreate the map & towers. [Binded to 'P' button]

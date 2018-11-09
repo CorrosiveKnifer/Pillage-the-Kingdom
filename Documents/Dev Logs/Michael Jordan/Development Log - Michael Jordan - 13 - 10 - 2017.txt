@@ -1,0 +1,26 @@
+[8am - 9:41am]
+	- [Bug 001: Map class]
+		- Solved! The tile array wasn't initalised properly. It needed to be an array of Tile pointers (rather than just tiles).
+	- Started Testing the track generation with the condition that it must succeed 5 times. "Track Generation Testing cases.pdf"
+	- [Testing: Track Recursion]
+		- [version 1.0]
+			- First generation of code.
+			- Loops on itself, but can reach the goal?
+			- Not enough conditions and the current condition might be preventing movement after a "RIGHT" movement.
+		- [version 1.1]
+			- Added a condition to not visit tiles that have an established center point.
+			- Does not reach the goal, because the previous conditions were removed.
+		- [version 1.2]
+			- Cleaned code and removed non relevant comments
+		- [version 1.3]
+			- Previous condition added along side the newly added conditions (v1.1).
+			- It was discovered that the randomiser can't make y = 2.
+		- [version 1.4]
+			- All working and passed 5 times.
+			
+	- Comment: I feel like the code could be refactored to be smaller/cleaner. 
+[10:30am - 10:50am]
+	- Created the clear temporary tile (from editing Jack's files)
+	- Moved temporary tile files to the assets folder.
+	- Created a tiles.ini file.
+	- Added access to the map classes from the game class. (To pass through the backbuffer)

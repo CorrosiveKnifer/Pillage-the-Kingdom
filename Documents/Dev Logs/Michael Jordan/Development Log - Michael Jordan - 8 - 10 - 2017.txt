@@ -1,0 +1,5 @@
+[6:20pm - 7:03pm]
+  - Added the iniparser code from my individual project to the group project.
+  - Created the .h file for Map with a reference to a non existant Tile/Tower class.
+  - Created the .h and .cpp for Tile class.
+  - Created the .cpp file for Map class.

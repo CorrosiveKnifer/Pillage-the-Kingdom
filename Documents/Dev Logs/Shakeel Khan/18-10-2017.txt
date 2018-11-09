@@ -1,0 +1,7 @@
+Projectiles now lerp correctly to enemy troops. 
+Collision detection between projectile and troop also working, uses a circle based detection. 
+Have yet to implement destroying the projectile after collision. 
+
+Added a get/set health to the troop to help debug the tower collision. 
+
+The circle collision detection is in entity's "is colliding with" method, so all entities should have this collision detection logic. 

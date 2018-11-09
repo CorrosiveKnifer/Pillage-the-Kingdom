@@ -1,0 +1,6 @@
+[9:15am]
+	- [Bug 004]
+	- [Fixed]
+		- Towers no longer generate on the 1st or last tile.
+		- Towers no longer generate on the same tile.
+	- Screen Interface created and game class is using it.

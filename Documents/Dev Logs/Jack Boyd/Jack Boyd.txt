@@ -1,0 +1,44 @@
+Wednesday 11th October
+12:00pm - 2:00pm
+	-Created Log
+	-Started Normal Troop Design Sprite Sheet
+	-Started creating basic framework for Troop, Troop Factory, and Normal Troop
+
+Friday 13th October
+8:00am - 10:00am
+	-Edited AnimatedSprite class so it is working
+	-Edited Entity class so that all entities use animated sprites
+	-Removed my personal Troop, Troop factory and Normal Troop classes and editing Dominics so that the code is easier to work with what i will do in future
+	-Continiued with normal troop design Sprite Sheet
+
+Sunday 15th October
+1:30pm - 4:00pm
+	-Finished Normal Troop sprite (just for moving)
+	-Started adding in a normal troop to the game, to test how to make the movement work
+	-Will come back and finish testing tonight
+
+9:00pm - 11:00pm
+	-Finished Testing the normal troop drawing onto screen
+		This included drawing a normal troop onto the screen, and using the arrows to control which direction
+		the troop is facing (which is being done by changing the y value the sprite is drawn from) COMPLETE SUCCESS
+	-Set up a finished AnimatedSprite class that allows the x and y frame positions to be manipulated
+	-Altered size of game to 1920x1080
+	-Made all tile sprites (horizontal, vertical, L and J shaped tiles)
+	
+Tuesday 17th October
+11:30am - 2:00pm
+	-Designed Wooden Tower (Sprite)
+	-Designed Rock Projectile (Sprite)
+		Tested drawing both wooden tower and projectile sprites COMPLETE SUCCESS
+	-Edited Bug in AnimatedSprite Class
+		The bug was that the frame rate would stay the same, even if the user would change it with the setframespeed method
+		This was because of a while loop that wasn't actually checking the speed, but a constant value i had put in when i started making the class
+		just so that i could actually get the sprites onto the screen. FIXED
+		
+
+Wednesday 18th October
+12:00pm - 2:00pm
+	-Alpha Milestone Comparison: Expected vs Reality
+		Expected: One randomly generated map, One working firing tower, one moving and attacking troop
+		Reality: One randomly generated map, One tower, firing not working, one troop working, moving unsuccessful (buggy), attacking non present
+	-Spent today with the team fixing bugs, trying to get our game to a standard we can show off to TA

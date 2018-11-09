@@ -1,0 +1,13 @@
+[9:40am to 11:40am]
+	- I've taken up the task of using everybodies code, to make a presentable version for the Alpha presentation.
+	- [Notes: ] To bring to the group about alterations:
+		- Projectile class should initialise with a target, not the towers position. 
+		- TowerFactory doesn't need a backbuffer if a sprite is already being passed through
+		- NormalTroop shouldn't have a process method. Only the states methods : {Move(), Act() and Halt()}
+		- The state methods in NormalTroop should be virtual.
+	- [Bug 005: Unknown class]
+		- The troop isn't quite sticking to the track.
+[4:00pm - ???]
+	- [Bug 005]
+	- [Fixed]
+		- Refactored code to implement the m_usedTile vector; 

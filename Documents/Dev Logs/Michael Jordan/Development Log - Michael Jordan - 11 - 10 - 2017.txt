@@ -1,0 +1,4 @@
+[12:25pm - 1:52pm]
+	- Created the .h and .cpp files for the MapFactory
+	- Main altered to allow map testing.
+	- Started on track generation

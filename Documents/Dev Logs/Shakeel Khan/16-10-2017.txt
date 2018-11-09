@@ -1,0 +1,5 @@
+Added functionality to towerfactory
+made changes with how projectiles are handled by the tower
+- projectiles are a seperate class now. 
+Added targetfinding logic - Untested
+Towers can now be spawned using the factory.

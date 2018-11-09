@@ -1,0 +1,12 @@
+[7:30am - 10:14am]
+	- Altered the tile.ini file to take in the additional tiles created by Jack.
+	- Allowed tiles to be drafted sprites within an the .ini file.
+	- [Bug 002 - BackBuffer?]
+		- Rotated tiles aren't lining up 100% correctly.
+		- Causing a black line and jagged tracks being displayed.
+		- Thought:
+			- Either the sprites aren't exactly rotatable or there is a piviot issue with the backbuffer.
+		- [Temp Fix]
+			- If the sprite is rotated, then the x & y coordinates are minused 1.
+	- Added functionality to request nextTarget for a moving troop.
+	- Added comment suggestions to Dominic's code for alterations which would suit the map's code (e.g. setting targetting).

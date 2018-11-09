@@ -1,0 +1,6 @@
+Added Tower, TowerFactory classes.
+
+Have basic get/set methods and framework for
+the rest of the logic 
+
+Modified entity to make it an abstract class

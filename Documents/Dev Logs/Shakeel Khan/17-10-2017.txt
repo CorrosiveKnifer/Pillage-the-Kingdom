@@ -1,0 +1,3 @@
+Fixed target finding for the towers, uses pythagoras to calculate the distance between the troop and tower, and if the distance is less than the radius of the boundary for the tower agression, it will acquire as a target. Tested
+
+Projectiles can be spawned at the tower's position.
