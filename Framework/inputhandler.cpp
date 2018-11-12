@@ -72,7 +72,13 @@ InputHandler::ProcessInput(Game& game)
 
 			}
 		}
-
+		if (e.type == SDL_KEYDOWN) //DEBUG
+		{
+			if (e.key.keysym.sym = SDLK_SPACE)
+			{
+				//game.setMute(true);
+			}
+		}
 		if (e.type == SDL_QUIT)
 		{
 			game.Quit();

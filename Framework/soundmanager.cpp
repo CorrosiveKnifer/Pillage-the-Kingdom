@@ -38,6 +38,7 @@ SoundManager::Initialise()
 	// 36 channels
 	m_pSystem->init(36, FMOD_INIT_NORMAL, NULL);
 	CreateSounds();
+	CreateChannels();
 }
 void
 SoundManager::CreateSounds()
@@ -87,9 +88,37 @@ SoundManager::CreateSounds()
 }
 
 void
+SoundManager::CreateChannels()
+{
+	m_pSystem->createChannelGroup(NULL, &m_pChannelGroupBGM);
+	m_pSystem->createChannelGroup(NULL, &m_pChannelGroupEffects);
+
+	//BGM
+	FMOD::Channel* BGM;
+	m_pChannels["BGM"] = BGM;
+	BGM->setChannelGroup(m_pChannelGroupBGM);
+	//"Spawn" m_pChannelGroupEffects
+	//"Explosion"  m_pChannelGroupEffects
+	//"Projectile" m_pChannelGroupEffects
+	//"Hurt" m_pChannelGroupEffects
+}
+
+void
 SoundManager::PlaySound(string string, bool loop)
 {
-	m_pSystem->playSound(m_pSounds[string], 0, false, 0);
+	m_pSystem->playSound(m_pSounds[string], 0, loop, &m_pChannelBGM);
+}
+
+void
+SoundManager::AddSoundToChannel(string sound, string channel)
+{
+	m_pSystem->playSound(m_pSounds[sound], 0, false, &m_pChannels[channel]);
+}
+
+void
+SoundManager::ClearChannel(string channel)
+{
+	m_pChannels[channel]->stop();
 }
 
 void
@@ -111,4 +140,16 @@ SoundManager::ReleaseSounds()
 	release = m_pSounds["SpawnTroop"];
 	release->release();
 	m_pSystem->release();
+}
+
+void
+SoundManager::ReleaseChannels()
+{
+
+}
+
+void
+SoundManager::SetChannelPause(string channel, bool isPaused)
+{
+	m_pChannels[channel]->setPaused(isPaused);
 }

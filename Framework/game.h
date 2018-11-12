@@ -52,6 +52,8 @@ public:
 	Mask* GetButtonMask() const;
 
 	void iniActingTroop();
+
+	void setMute(bool isMute);
 protected:
 	virtual void Process(float deltaTime);
 	virtual void Draw(BackBuffer& backBuffer);

@@ -269,8 +269,20 @@ BackBuffer::GetScaleY() const
 {
 	return m_scaleValY;
 }
+
 void
-BackBuffer::PlaySound(string string, bool loop)
+BackBuffer::PlaySound(string sound, string channel)
 {
-	m_pSoundManager->PlaySound(string, loop);
+	m_pSoundManager->AddSoundToChannel(sound, channel);
+}
+
+void
+BackBuffer::SetChannelPause(string channel, bool isPaused)
+{
+	m_pSoundManager->SetChannelPause(channel, isPaused);
+}
+void
+BackBuffer::ClearChannel(string channel)
+{
+	m_pSoundManager->ClearChannel(channel);
 }

@@ -1,4 +1,47 @@
-﻿  animatedsprite.cpp
+﻿  Button.cpp
+  MapSelectScreen.cpp
+e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
+e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
+MapSelectScreen.cpp(258): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(259): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(276): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(277): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(294): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(295): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(312): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(313): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(318): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(375): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(384): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(392): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(400): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(413): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(414): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(415): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(416): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(417): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(418): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(419): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(420): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(422): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+MapSelectScreen.cpp(423): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(425): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+MapSelectScreen.cpp(426): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  MenuScreen.cpp
+MenuScreen.cpp(88): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MenuScreen.cpp(89): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Tower.cpp
+e:\programming\pillage the kingdom\framework\Tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
+e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
+e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
+Tower.cpp(68): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+Tower.cpp(69): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+Tower.cpp(70): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+Tower.cpp(210): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Tower.cpp(211): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  TowerFactory.cpp
+e:\programming\pillage the kingdom\framework\Tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
+  animatedsprite.cpp
   autscreen.cpp
 autscreen.cpp(76): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 autscreen.cpp(77): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
@@ -13,23 +56,20 @@ backbuffer.cpp(173): warning C4244: '=': conversion from 'float' to 'int', possi
 backbuffer.cpp(174): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 backbuffer.cpp(177): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 backbuffer.cpp(178): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Button.cpp
   entity.cpp
 entity.cpp(58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 entity.cpp(59): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 entity.cpp(60): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 entity.cpp(152): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 entity.cpp(158): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  Explosion.cpp
-e:\programming\pillage the kingdom\framework\tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
   game.cpp
 e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
 e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
 e:\programming\pillage the kingdom\framework\Tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
-game.cpp(217): warning C4018: '<': signed/unsigned mismatch
+game.cpp(216): warning C4018: '<': signed/unsigned mismatch
+game.cpp(219): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 game.cpp(220): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-game.cpp(221): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-game.cpp(222): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+game.cpp(221): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 game.cpp(294): warning C4018: '<': signed/unsigned mismatch
 game.cpp(309): warning C4018: '<': signed/unsigned mismatch
 game.cpp(353): warning C4018: '<': signed/unsigned mismatch
@@ -62,11 +102,6 @@ game.cpp(708): warning C4018: '<': signed/unsigned mismatch
 game.cpp(709): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 game.cpp(710): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 game.cpp(716): warning C4018: '<': signed/unsigned mismatch
-  iniParser.cpp
-  inputhandler.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-  logmanager.cpp
   main.cpp
 e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
 e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
@@ -109,98 +144,13 @@ map.cpp(511): warning C4244: 'argument': conversion from 'int' to 'float', possi
   mapFactory.cpp
 e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
 e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-  MapSelectScreen.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-MapSelectScreen.cpp(258): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(259): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(276): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(277): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(294): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(295): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(312): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(313): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(318): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(375): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(384): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(392): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(400): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(413): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(414): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(415): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(416): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(417): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(418): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(419): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(420): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(422): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-MapSelectScreen.cpp(423): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(425): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-MapSelectScreen.cpp(426): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Mask.cpp
-  MenuScreen.cpp
-MenuScreen.cpp(88): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-MenuScreen.cpp(89): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  normaltroop.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-  Projectile.cpp
-e:\programming\pillage the kingdom\framework\Tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-Projectile.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-Projectile.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-Projectile.cpp(89): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-Projectile.cpp(90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-Projectile.cpp(98): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-Projectile.cpp(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-Projectile.cpp(121): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  protectiontroopcpp.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-  sound.cpp
-  Compiling...
   soundmanager.cpp
   sprite.cpp
-  tanktroop.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-tanktroop.cpp(6): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  texture.cpp
-  texturemanager.cpp
   tile.cpp
-  Tower.cpp
-e:\programming\pillage the kingdom\framework\Tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-Tower.cpp(68): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-Tower.cpp(69): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-Tower.cpp(70): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-Tower.cpp(210): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-Tower.cpp(211): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  TowerFactory.cpp
-e:\programming\pillage the kingdom\framework\Tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
-  troop.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-troop.cpp(70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-troop.cpp(71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-troop.cpp(79): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-troop.cpp(80): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-troop.cpp(85): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-troop.cpp(89): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-troop.cpp(100): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-troop.cpp(104): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-troop.cpp(178): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-troop.cpp(189): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  troopfactory.cpp
-e:\programming\pillage the kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
-e:\programming\pillage the kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
   Generating code
-e:\programming\pillage the kingdom\framework\map.cpp(421): warning C4715: 'Map::HasReachedTarget': not all control paths return a value
-e:\programming\pillage the kingdom\framework\map.cpp(457): warning C4715: 'Map::StyleToString': not all control paths return a value
-e:\programming\pillage the kingdom\framework\soundmanager.cpp(41): warning C4715: 'SoundManager::Initialise': not all control paths return a value
-  All 2192 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  53 of 2336 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    16 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Framework.vcxproj -> E:\Programming\Pillage the Kingdom\Release\Framework.exe
   Framework.vcxproj -> E:\Programming\Pillage the Kingdom\Release\Framework.pdb (Full PDB)

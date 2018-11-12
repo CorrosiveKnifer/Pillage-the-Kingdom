@@ -108,10 +108,9 @@ Game::~Game()
 		towIter = m_Towers.erase(towIter);
 		delete temp;
 	}
-
+	m_pBackBuffer->ClearChannel("BGM");
 	delete m_pInputHandler;
 	m_pInputHandler = 0;
-
 }
 
 bool 
@@ -233,7 +232,8 @@ Game::Initialise(BackBuffer* backBuffer)
 	m_Towers.push_back(m_pVillage);
 	m_pMap->SetUpVillageCoordinates(m_pVillage);
 
-	backBuffer->PlaySound("BackgroundTrack", true);
+	m_pBackBuffer->PlaySound("BackgroundTrack", "BGM");
+	m_pBackBuffer->SetChannelPause("BGM", false);
 
 	return (true);
 }
@@ -716,4 +716,10 @@ Game::setAllTroopDamage(float damage){
 	for (int i = 0; i < actingTroops.size(); i++){
 		actingTroops.at(i)->SetDamage(damage);
 	}
+}
+
+void
+Game::setMute(bool isMute)
+{
+	m_pBackBuffer->SetChannelPause("BGM", isMute);
 }

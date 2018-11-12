@@ -49,7 +49,9 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
-	void PlaySound(string string, bool loop);
+	void PlaySound(string sound, string channel);
+	void SetChannelPause(string channel, bool isPaused);
+	void ClearChannel(string channel);
 protected:
 	void LogSDLError();
 
