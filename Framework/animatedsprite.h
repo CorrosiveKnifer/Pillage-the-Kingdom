@@ -27,10 +27,11 @@ public:
 	void SetFrameHeight(int h);
 	int GetFrameHeight();
 	int GetCurrentFrame();
-	void SetCurrentFrame(int currentFrame);
-	int GetCurrentFrameNo();
-	void SetCurrentFrameNo(int currentFrameNo);
+	void SetCurrentColumn(int currentFrame);
+	int GetCurrentColumn();
+	void SetCurrentColumnNo(int currentFrameNo);
 	int GetNoOfFrames();
+	
 	void SetCurrentRow(int row);
 	int GetCurrentRow();
 
@@ -58,8 +59,8 @@ protected:
 	int m_frameHeight;
 
 	float m_timeElapsed;
-	int m_currentFrame;
-	int m_currentFrameNo;
+	int m_currentColumn;
+	int m_currentColumnNo;
 	int m_currentRow;
 
 	bool m_paused;

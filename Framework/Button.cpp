@@ -43,11 +43,11 @@ Button::Draw(BackBuffer& backBuffer)
 	m_pSprite->SetY(static_cast<int>(m_y));
 	if (isToggled)
 	{
-		m_pSprite->SetCurrentFrameNo(1);
+		m_pSprite->SetCurrentColumnNo(1);
 	}
 	else
 	{
-		m_pSprite->SetCurrentFrameNo(0);
+		m_pSprite->SetCurrentColumnNo(0);
 	}
 	if(!isEnabled) backBuffer.SetTextureColour(m_pSprite->GetTexture(), 0x00, 0x00, 0x00); //<-- Added by Michael
 	else backBuffer.SetTextureColour(m_pSprite->GetTexture(), 0xFF, 0xFF, 0xFF);

@@ -1,1 +1,5 @@
 .obj
+.vs/Framework/v15/.suo
+.vs/Framework/v15/Browse.VC.db
+.vs/Framework/v15/Browse.VC.opendb
+*.ipch

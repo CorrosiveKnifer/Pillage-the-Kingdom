@@ -31,6 +31,7 @@ Entity::Initialise(AnimatedSprite* sprite)
 {
 	assert(sprite);
 	m_pAnimatedSprite = sprite;
+	sprite->SetLooping(true);
 
 	return (true);
 }
@@ -78,6 +79,10 @@ Entity::IsDead() const
 	{
 		return false;
 	}
+}
+bool Entity::IsAnimating()
+{
+	return m_pAnimatedSprite->IsAnimating();
 }
 
 void 

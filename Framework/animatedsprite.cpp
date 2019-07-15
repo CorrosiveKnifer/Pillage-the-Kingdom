@@ -8,10 +8,9 @@
 AnimatedSprite::AnimatedSprite()
 	: m_frameWidth(0)
 	, m_timeElapsed(0.0f)
-	, m_currentFrame(0)
+	, m_currentColumn(0)
 	, m_currentRow(0)
 	, m_paused(false)
-	, m_loop(true)
 	, m_animating(true)
 	, m_xValues(0)
 {
@@ -30,11 +29,10 @@ AnimatedSprite::Initialise(Texture& texture)
 
 	m_loop = true;
 	m_paused = false;
-	m_animating = true;
 	if (!m_xValues.empty()){
-		m_currentFrame = m_xValues[0];
+		m_currentColumn = m_xValues[0];
 	}
-	m_currentFrameNo = 0;
+	m_currentColumnNo = 0;
 	Sprite::Initialise(texture);
 
 	StartAnimating();
@@ -57,25 +55,23 @@ AnimatedSprite::Process(float deltaTime)
 		//FIX THIS PROPERLY
 		if (m_timeElapsed > m_frameSpeed)
 		{
-			m_currentFrame = m_xValues[m_currentFrameNo];
+			m_currentColumn = m_xValues[m_currentColumnNo];
 			m_timeElapsed = 0;
 			if (!(m_xValues.size()<=1)){
-				if (m_loop){
-					if (m_currentFrameNo >= (static_cast<int>(m_xValues.size()) - 1)){
-						m_currentFrameNo = 0;
+				if (m_currentColumnNo >= (m_xValues.size() - 1))
+				{
+					if (m_loop)
+					{
+						m_currentColumnNo = 0;
 					}
 					else
 					{
-						m_currentFrameNo++;
-					}
-				}
-				else{
-					if (m_currentFrameNo < static_cast<int>(m_xValues.size())){
-						m_currentFrameNo++;
-					}
-					else{
 						m_animating = false;
 					}
+				}
+				else
+				{
+					m_currentColumnNo++;
 				}
 			}
 		}
@@ -121,12 +117,12 @@ AnimatedSprite::GetFrameHeight()
 int
 AnimatedSprite::GetCurrentFrame()
 {
-	return m_currentFrame;
+	return m_currentColumn;
 }
 void
-AnimatedSprite::SetCurrentFrame(int currentFrame)
+AnimatedSprite::SetCurrentColumn(int currentFrame)
 {
-	m_currentFrame = currentFrame;
+	m_currentColumn = currentFrame;
 }
 
 void
@@ -138,13 +134,13 @@ AnimatedSprite::Pause()
 bool
 AnimatedSprite::IsPaused()
 {
-	return (m_paused);
+	return m_paused;
 }
 
 bool
 AnimatedSprite::IsAnimating()
 {
-	return (m_animating);
+	return m_animating;
 }
 
 void
@@ -153,13 +149,13 @@ AnimatedSprite::StartAnimating()
 	m_animating = true;
 
 	m_timeElapsed = 0;
-	m_currentFrame = 0;
+	m_currentColumn = 0;
 }
 
 bool
 AnimatedSprite::IsLooping()
 {
-	return (m_loop);
+	return m_loop;
 }
 
 void
@@ -169,15 +165,15 @@ AnimatedSprite::SetLooping(bool b)
 }
 
 int
-AnimatedSprite::GetCurrentFrameNo()
+AnimatedSprite::GetCurrentColumn()
 {
-	return m_currentFrameNo;
+	return m_currentColumnNo;
 }
 void
-AnimatedSprite::SetCurrentFrameNo(int currentFrameNo)
+AnimatedSprite::SetCurrentColumnNo(int currentFrameNo)
 {
-	m_currentFrameNo = currentFrameNo;
-	m_currentFrame = m_xValues[m_currentFrameNo];
+	m_currentColumnNo = currentFrameNo;
+	m_currentColumn = m_xValues[m_currentColumnNo];
 }
 int
 AnimatedSprite::GetNoOfFrames()

@@ -25,7 +25,8 @@ m_health(0)
 , m_radius(0)
 , delay(1.1f)
 , m_pTarget(NULL)
-, m_explosion(0)
+, m_pExplosion(0)
+, m_spawnedExplosion(false)
 {
 }
 
@@ -91,8 +92,8 @@ Tower::Draw(BackBuffer& backBuffer)
 
 	if (m_dead)
 	{
-		if(m_explosion == 0) PlayDeathAnimation(backBuffer);
-		m_explosion->Draw(backBuffer);
+		if(m_pExplosion == 0) PlayDeathAnimation(backBuffer);
+		m_pExplosion->Draw(backBuffer);
 	}
 
 	Entity::Draw(backBuffer);
@@ -187,7 +188,18 @@ Tower::Process(float deltaTime)
 	if (m_dead)
 	{
 		m_pTarget = NULL;
-		if (m_explosion != 0) m_explosion->Process(deltaTime);
+		if (m_spawnedExplosion)
+		{
+			if (m_pExplosion != 0)
+			{
+				m_pExplosion->Process(deltaTime);
+				if (!m_pExplosion->IsAnimating())
+				{
+					delete m_pExplosion;
+					m_pExplosion = 0;
+				}
+			}
+		}
 	}
 
 	if (m_health <= 0)
@@ -214,10 +226,10 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 		{
 			m_towerExplosionSprite->AddFrame(i);
 		}
-
-		m_explosion = new Explosion();
-		m_explosion->Initialise(m_towerExplosionSprite, this);
-		m_explosion->Draw(backBuffer);
+		m_spawnedExplosion = true;
+		m_pExplosion = new Explosion();
+		m_pExplosion->Initialise(m_towerExplosionSprite, this);
+		m_pExplosion->Draw(backBuffer);
 
 		if (this->GetType() == WOODEN || this->GetType() == STONE)
 		{

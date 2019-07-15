@@ -22,7 +22,7 @@ public:
 	bool IsDead() const;
 
 	bool IsCollidingWith(Entity& e);
-
+	bool IsAnimating();
 	void SetPosition(float x, float y);
 	void SetPositionX(float x);
 	void SetPositionY(float y);

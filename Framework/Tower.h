@@ -71,8 +71,8 @@ protected:
 	AnimatedSprite* m_arrowSprite;
 	AnimatedSprite* m_towerExplosionSprite;
 	AnimatedSprite* deadTowerSprite;
-
-	Explosion* m_explosion;
+	bool m_spawnedExplosion;
+	Explosion* m_pExplosion;
 	float delay;
 };
 

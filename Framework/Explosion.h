@@ -14,6 +14,7 @@ public:
 	void Process(float deltaTime);
 	void Draw(BackBuffer& backBuffer);
 
+	bool IsAnimating();
 private:
 
 protected:

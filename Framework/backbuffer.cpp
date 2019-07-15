@@ -10,6 +10,7 @@
 #include "texturemanager.h"
 #include "sprite.h"
 #include "texture.h"
+#include "iniParser.h"
 
 // Library includes:
 #include <string>
@@ -94,6 +95,7 @@ BackBuffer::Initialise(int width, int height)
 				}
 			}
 		}
+		IniParser::GetInstance().LoadIniFile("assets\\Animations.ini");
 	}
 
 	//Added by Michael and Jack
@@ -230,6 +232,15 @@ BackBuffer::CreateAnimatedSprite(const char* pcFilename)
 	Texture* pTexture = m_pTextureManager->GetTexture(pcFilename);
 
 	AnimatedSprite* pSprite = new AnimatedSprite();
+	
+	pSprite->SetFrameSpeed(IniParser::GetInstance().GetValueAsFloat(pcFilename, "Speed"));
+	pSprite->SetFrameWidth(IniParser::GetInstance().GetValueAsInt(pcFilename, "Width"));
+	pSprite->SetFrameHeight(IniParser::GetInstance().GetValueAsInt(pcFilename, "Height"));
+	//pSprite->SetFrameColumns(IniParser::GetInstance().GetValueAsInt(pcFilename, Column));
+	//pSprite->SetFrameRows(IniParser::GetInstance().GetValueAsInt(pcFilename, Row));
+	//pSprite->SetCurrentFrameNo(IniParser::GetInstance().GetValueAsInt(pcFilename, StartFrame));
+	pSprite->SetLooping(IniParser::GetInstance().GetValueAsBoolean(pcFilename, "IsLooping"));
+
 	if (!pSprite->Initialise(*pTexture))
 	{
 		LogManager::GetInstance().Log("Sprite Failed to Create!");
