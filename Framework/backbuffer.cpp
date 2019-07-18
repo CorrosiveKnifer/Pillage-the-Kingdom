@@ -233,6 +233,10 @@ BackBuffer::CreateAnimatedSprite(const char* pcFilename)
 
 	AnimatedSprite* pSprite = new AnimatedSprite();
 	
+	if (IniParser::GetInstance().DoesSectionExist())
+	{
+
+	}
 	pSprite->SetFrameSpeed(IniParser::GetInstance().GetValueAsFloat(pcFilename, "Speed"));
 	pSprite->SetFrameWidth(IniParser::GetInstance().GetValueAsInt(pcFilename, "Width"));
 	pSprite->SetFrameHeight(IniParser::GetInstance().GetValueAsInt(pcFilename, "Height"));

@@ -9,7 +9,7 @@
 
 //Static instances:
 IniParser* IniParser::sm_pInstance = 0;
-std::map<std::string, std::string>* m_Content = 0;
+std::map<std::string, std::string>* m_pContent = 0;
 
 IniParser&
 IniParser::GetInstance()
@@ -30,78 +30,110 @@ IniParser::DestroyInstance()
 }
 
 IniParser::IniParser()
-	: m_Content(0)
+	: m_pContent(0)
 {
 	
 }
 
 IniParser::~IniParser()
 {
-	if (sm_pInstance->m_Content != 0)
+	if (sm_pInstance->m_pContent != 0)
 	{
-		sm_pInstance->m_Content->clear();
-		delete m_Content;
+		sm_pInstance->m_pContent->clear();
+		delete m_pContent;
+	}
+
+	if (sm_pInstance->m_pSectionList != 0)
+	{
+		sm_pInstance->m_pSectionList->clear();
+		delete m_pSectionList;
 	}
 }
 
 bool 
 IniParser::LoadIniFile(const std::string& filename)
 {
-	if (m_Content == 0) 
+	std::ifstream file; //File
+	std::string line; //Line to be cut
+	std::string section; //Section
+	std::string key; //Key
+	std::string value;
+
+	//Check if the parser has been loaded before.
+	if (m_pContent == 0) 
 	{
-		m_Content = new std::map<std::string, std::string>();
+		m_pContent = new std::map<std::string, std::string>();
+		m_pSectionList = new std::vector<std::string>();
 	}
-	else 
+	else //clear old data.
 	{
-		m_Content->clear();
+		m_pContent->clear();
+		m_pSectionList->clear();
 	}
-	std::ifstream file;
-	std::string line;
-	std::string section;
-	file.open(filename);
-	if (file.is_open()) //Check if the file exists
+
+	file.open(filename); //Open the file
+
+	//Check if the file exists
+	if (file.is_open()) 
 	{
 		while (std::getline(file, line))
 		{
-			if (line.empty()) 
+			if (line.empty()) //Ignore because it is empty.
 			{
-				//Ignore because it is empty.
+				
 			}
-			else if (line.at(0) == '[')
+			else if (line.at(0) == '[') //Start of a section identifier
 			{
 				section = line.substr(1, line.size() - 2);
+				std::vector<std::string>::iterator iter = m_pSectionList->end();
+				m_pSectionList->insert(iter, section);
 			}
-			else if (line.at(0) == ';')
+			else if (line.at(0) == ';') //Ignore because it is a comment.
 			{
-				//Ignore because it is a comment.
+				
 			}
-			else
+			else //it is relevant informaton
 			{
 				int temp = line.find(" ");
-				std::string key = line.substr(0, temp);
-				std::string value = line.substr(temp + 3, line.size() - 1);
-				m_Content->insert(std::pair<std::string, std::string>(section + " | " + key, value));
+				key = line.substr(0, temp);
+				value = line.substr(temp + 3, line.size() - 1);
+				m_pContent->insert(std::pair<std::string, std::string>(section + " | " + key, value));
 			}
 		}
-		file.close();
+		file.close(); //Close the file
 		return true;
 	}
-	else
+	else //failed to open the file
 	{
 		return false;
 	}
 }
 
+bool 
+IniParser::DoesSectionExist(const std::string iniSection)
+{
+	std::vector<std::string>::iterator iter = std::find(m_pSectionList->begin(), m_pSectionList->end(), iniSection);
+	
+	return (iter != m_pSectionList->end());
+}
+
+bool 
+IniParser::DoesKeyExist(const std::string& iniSection, const std::string& key)
+{
+	std::map<std::string, std::string>::iterator iter = m_pContent->find(iniSection + " | " + key);
+	return (iter != m_pContent->end());
+}
+
 std::string
 IniParser::GetValueAsString(const std::string& iniSection, const std::string& key)
 {
-	return m_Content->at(iniSection + " | " + key);
+	return m_pContent->at(iniSection + " | " + key);
 }
 
 int
 IniParser::GetValueAsInt(const std::string& iniSection, const std::string& key)
 {
-	std::string temp = m_Content->at(iniSection + " | " + key);
+	std::string temp = m_pContent->at(iniSection + " | " + key);
 	std::stringstream geek(temp);
 	int val = 0;
 	geek >> val;
@@ -111,14 +143,14 @@ IniParser::GetValueAsInt(const std::string& iniSection, const std::string& key)
 float
 IniParser::GetValueAsFloat(const std::string& iniSection, const std::string& key)
 {
-	std::string temp = m_Content->at(iniSection + " | " + key);
+	std::string temp = m_pContent->at(iniSection + " | " + key);
 	return strtof(temp.data(), NULL);
 }
 
 bool
 IniParser::GetValueAsBoolean(const std::string& iniSection, const std::string& key)
 {
-	std::string temp = m_Content->at(iniSection + " | " + key);
+	std::string temp = m_pContent->at(iniSection + " | " + key);
 	if (temp == "true") 
 	{
 		return true;
