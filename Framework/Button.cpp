@@ -29,8 +29,8 @@ Button::Initialise(AnimatedSprite* sprite, int buttonID)
 	assert(sprite);
 	m_pSprite = sprite;
 	m_buttonID = buttonID;
-	m_h = sprite->GetFrameHeight();
-	m_w = sprite->GetFrameWidth();
+	m_h = sprite->GetHeight();
+	m_w = sprite->GetWidth();
 
 	return true;
 }

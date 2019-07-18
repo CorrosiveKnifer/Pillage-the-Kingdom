@@ -40,8 +40,8 @@ Projectile::Initialise(Tower* tower, AnimatedSprite* sprite)
 {
 	Entity::Initialise(sprite);
 	p_tower = tower;
-	m_x = p_tower->GetPositionX()+(p_tower->GetWidth()-sprite->GetFrameWidth())/2.0f;
-	m_y = p_tower->GetPositionY() + (p_tower->GetHeight() - sprite->GetFrameHeight()) / 2.0f;
+	m_x = p_tower->GetPositionX()+(p_tower->GetWidth()-sprite->GetWidth())/2.0f;
+	m_y = p_tower->GetPositionY() + (p_tower->GetHeight() - sprite->GetHeight()) / 2.0f;
 	m_dead = false;
 
 	return true;
@@ -118,6 +118,6 @@ Projectile::Explode()
 void
 Projectile::SetAngle(int angle)
 {
-	m_pAnimatedSprite->SetAngle(angle);
+	m_pSprite->SetAngle(angle);
 }
 

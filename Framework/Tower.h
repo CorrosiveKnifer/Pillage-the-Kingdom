@@ -49,7 +49,7 @@ public:
 	int GetType();
 	void SetType(TowerType myType);
 
-	void SetSprite(AnimatedSprite* mySprite);
+	void SetSprite(Sprite* mySprite);
  
 private:
 

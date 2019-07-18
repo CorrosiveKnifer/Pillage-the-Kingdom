@@ -65,8 +65,6 @@ MenuScreen::Initialise(BackBuffer* backBuffer)
 	std::vector<Button* > temp;
 	std::vector<Button* >::iterator iter;
 	AnimatedSprite* playSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\playButton.png");
-	playSprite->SetFrameWidth(200);
-	playSprite->SetFrameHeight(100);
 	playSprite->AddFrame(0);
 	playSprite->AddFrame(200);
 	Button* playButton = new Button();
@@ -75,8 +73,6 @@ MenuScreen::Initialise(BackBuffer* backBuffer)
 	iter = temp.insert(iter, playButton);
 
 	AnimatedSprite* quitSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\quitButton.png");
-	quitSprite->SetFrameWidth(200);
-	quitSprite->SetFrameHeight(100);
 	quitSprite->AddFrame(0);
 	quitSprite->AddFrame(200);
 	Button* quitButton = new Button();

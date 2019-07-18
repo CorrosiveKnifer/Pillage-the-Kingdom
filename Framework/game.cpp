@@ -125,21 +125,12 @@ Game::Initialise(BackBuffer* backBuffer)
 	//BUTTONS
 	//Create sprites for buttons. USING ONE SPRITE FOR ALL BUTTONS ATM. I suggest a sprite sheet. 
 	AnimatedSprite* NormalButtonSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\troopbutton.png");
-	NormalButtonSprite->SetFrameWidth(200);
-	NormalButtonSprite->SetFrameHeight(200);
-	NormalButtonSprite->SetFrameSpeed(1 / 5);
 	NormalButtonSprite->AddFrame(0);
 
 	AnimatedSprite* TankButtonSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\troopbuttonTANK.png");
-	TankButtonSprite->SetFrameWidth(200);
-	TankButtonSprite->SetFrameHeight(200);
-	TankButtonSprite->SetFrameSpeed(1 / 5);
 	TankButtonSprite->AddFrame(0);
 
 	AnimatedSprite* ProtButtonSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\troopbuttonPROT.png");
-	ProtButtonSprite->SetFrameWidth(200);
-	ProtButtonSprite->SetFrameHeight(200);
-	ProtButtonSprite->SetFrameSpeed(1 / 5);
 	ProtButtonSprite->AddFrame(0);
 
 	//Create buttons using the sprite and assign its ID
@@ -197,8 +188,6 @@ Game::Initialise(BackBuffer* backBuffer)
 	//Troops
 	//Making troop sprites.
 	AnimatedSprite* normalTroopSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\NormalTroop.png");
-	normalTroopSprite->SetFrameWidth(50);
-	normalTroopSprite->SetFrameHeight(50);
 	normalTroopSprite->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
 		normalTroopSprite->AddFrame(i);
@@ -206,8 +195,6 @@ Game::Initialise(BackBuffer* backBuffer)
 		
 	//Towers
 	AnimatedSprite* WTowerSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\woodentower.png");
-	WTowerSprite->SetFrameWidth(200);
-	WTowerSprite->SetFrameHeight(200);
 	WTowerSprite->SetFrameSpeed(1 / 5);
 	WTowerSprite->AddFrame(0);
 	
@@ -216,15 +203,13 @@ Game::Initialise(BackBuffer* backBuffer)
 	for (int p = 0; p < towerPos.size(); p++)
 	{
 		towerIter = m_Towers.insert(towerIter, TowerFactory::CreateTower(WTowerSprite, Tower::WOODEN));
-		int Tx = towerPos.at(p)->x - (WTowerSprite->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
-		int Ty = towerPos.at(p)->y - (WTowerSprite->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
+		int Tx = towerPos.at(p)->x - (WTowerSprite->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
+		int Ty = towerPos.at(p)->y - (WTowerSprite->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
 		(*towerIter)->SetPosition(Tx, Ty);
 	}
 
 	//Village by Michael
 	AnimatedSprite* villageSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\village.png");
-	villageSprite->SetFrameWidth(300);
-	villageSprite->SetFrameHeight(300);
 	villageSprite->SetFrameSpeed(1.0);
 	villageSprite->AddFrame(0);
 
@@ -354,7 +339,6 @@ Game::Draw(BackBuffer& backBuffer)
 		actingTroops.at(i)->Draw(*m_pBackBuffer);
 	}
 
-	//Altered by Michael:
 	std::vector<Tower*>::iterator towerIter = m_Towers.begin();
 	while (towerIter != m_Towers.end())
 	{
@@ -409,8 +393,6 @@ Game::Refresh()
 	m_drawDebugInfo = false;
 }
 
-//Testing Normal Troop Sprite work
-//Jack Boyd 14860648
 void
 Game::ChangeDirection(int x)
 {
@@ -487,8 +469,8 @@ Game::DebugRemakeMap()
 	iniWaitingTroops();
 
 	AnimatedSprite* normalTroop = m_pBackBuffer->CreateAnimatedSprite("assets\\NormalTroop.png");
-	normalTroop->SetFrameWidth(50);
-	normalTroop->SetFrameHeight(50);
+	normalTroop->SetWidth(50);
+	normalTroop->SetHeight(50);
 	normalTroop->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50) {
 		normalTroop->AddFrame(i);
@@ -498,8 +480,8 @@ Game::DebugRemakeMap()
 	int x;
 	int y;
 	m_pMap->GetTrackStartCoords(x, y);
-	x -= (normalTroop->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0; //<- Added by Michael
-	y -= (normalTroop->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0; //<- Added by Michael
+	x -= (normalTroop->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0; //<- Added by Michael
+	y -= (normalTroop->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0; //<- Added by Michael
 	m_pNormalTroop->SetPosition(x + 100, y);
 	m_pNormalTroop->SetCurrentTile(0);
 	m_pMap->GetNextTarget(x, y, m_pNormalTroop, Map::select::CENTER); //<- Added by Michael
@@ -511,8 +493,8 @@ Game::DebugRemakeMap()
 	m_pNormalTroop->SetTarget(x, y, Map::select::CENTER); //<- Added by Michael
 
 	AnimatedSprite* normalTroopSprite1 = m_pBackBuffer->CreateAnimatedSprite("assets\\NormalTroop.png");
-	normalTroopSprite1->SetFrameWidth(50);
-	normalTroopSprite1->SetFrameHeight(50);
+	normalTroopSprite1->SetWidth(50);
+	normalTroopSprite1->SetHeight(50);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
 		normalTroopSprite1->AddFrame(i);
@@ -521,8 +503,8 @@ Game::DebugRemakeMap()
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
 	int x1, y1 = 0;
 	m_pMap->GetTrackStartCoords(x1, y1);
-	x1 -= (normalTroopSprite1->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0; //<- Added by Michael
-	y1 -= (normalTroopSprite1->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0; //<- Added by Michael
+	x1 -= (normalTroopSprite1->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0; //<- Added by Michael
+	y1 -= (normalTroopSprite1->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0; //<- Added by Michael
 	m_pNormalTroop1->SetPosition(x1, y1 + 10);
 	m_pNormalTroop1->SetCurrentTile(0);
 	m_pNormalTroop1->SetVerticalVelocity(100); //<- Added by Michael
@@ -534,8 +516,8 @@ Game::DebugRemakeMap()
 
 	//Towers
 	AnimatedSprite* WTowerSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\woodentower.png");
-	WTowerSprite->SetFrameWidth(200);
-	WTowerSprite->SetFrameHeight(200);
+	WTowerSprite->SetWidth(200);
+	WTowerSprite->SetHeight(200);
 	WTowerSprite->SetFrameSpeed(1 / 5);
 	WTowerSprite->AddFrame(0);
 
@@ -545,8 +527,8 @@ Game::DebugRemakeMap()
 	for (int p = 0; p < towerPos.size(); p++)
 	{
 		towerIter = m_Towers.insert(towerIter, TowerFactory::CreateTower(WTowerSprite, Tower::WOODEN));
-		int Tx = towerPos.at(p)->x - (WTowerSprite->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
-		int Ty = towerPos.at(p)->y - (WTowerSprite->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
+		int Tx = towerPos.at(p)->x - (WTowerSprite->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
+		int Ty = towerPos.at(p)->y - (WTowerSprite->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
 		(*towerIter)->SetPosition(Tx, Ty);
 	}
 }
@@ -608,8 +590,8 @@ Game::iniWaitingTroops(){
 void 
 Game::iniActingTroop(){
 	AnimatedSprite* normalTroopSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\NormalTroop.png");
-	normalTroopSprite->SetFrameWidth(50);
-	normalTroopSprite->SetFrameHeight(50);
+	normalTroopSprite->SetWidth(50);
+	normalTroopSprite->SetHeight(50);
 	normalTroopSprite->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
 		normalTroopSprite->AddFrame(i);
@@ -618,8 +600,8 @@ Game::iniActingTroop(){
 	m_pNormalTroop1->Initialise(normalTroopSprite);
 	int x, y = 0;
 	m_pMap->GetTrackStartCoords(x, y);
-	x -= (normalTroopSprite->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0; //<- Added by Michael
-	y -= (normalTroopSprite->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0; //<- Added by Michael
+	x -= (normalTroopSprite->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0; //<- Added by Michael
+	y -= (normalTroopSprite->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0; //<- Added by Michael
 
 	m_pNormalTroop1->SetPosition(0, 0);
 	m_pNormalTroop1->SetCurrentTile(1);
@@ -634,8 +616,8 @@ Game::iniActingTroop(){
 void 
 Game::addNormalTroopToActingTroops(){
 	AnimatedSprite* normalTroopSprite1 = m_pBackBuffer->CreateAnimatedSprite("assets\\NormalTroop.png");
-	normalTroopSprite1->SetFrameWidth(50);
-	normalTroopSprite1->SetFrameHeight(50);
+	normalTroopSprite1->SetWidth(50);
+	normalTroopSprite1->SetHeight(50);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
 		normalTroopSprite1->AddFrame(i);
@@ -644,8 +626,8 @@ Game::addNormalTroopToActingTroops(){
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
 	int x1, y1 = 0;
 	m_pMap->GetTrackStartCoords(x1, y1);
-	x1 -= (normalTroopSprite1->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0; 
-	y1 -= (normalTroopSprite1->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0; 
+	x1 -= (normalTroopSprite1->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0; 
+	y1 -= (normalTroopSprite1->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0; 
 	m_pNormalTroop1->SetPosition(x1, y1 + 10);
 	m_pNormalTroop1->SetCurrentTile(0);
 	m_pNormalTroop1->SetVerticalVelocity(100); 
@@ -658,8 +640,8 @@ Game::addNormalTroopToActingTroops(){
 void 
 Game::addTankTroopToActingTroops(){
 	AnimatedSprite* normalTroopSprite1 = m_pBackBuffer->CreateAnimatedSprite("assets\\TankTroop.png");
-	normalTroopSprite1->SetFrameWidth(50);
-	normalTroopSprite1->SetFrameHeight(50);
+	normalTroopSprite1->SetWidth(50);
+	normalTroopSprite1->SetHeight(50);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 99; i += 50){
 		normalTroopSprite1->AddFrame(i);
@@ -668,8 +650,8 @@ Game::addTankTroopToActingTroops(){
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
 	int x1, y1 = 0;
 	m_pMap->GetTrackStartCoords(x1, y1);
-	x1 -= (normalTroopSprite1->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
-	y1 -= (normalTroopSprite1->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
+	x1 -= (normalTroopSprite1->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
+	y1 -= (normalTroopSprite1->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
 	m_pNormalTroop1->SetPosition(x1, y1 + 10);
 	m_pNormalTroop1->SetCurrentTile(0);
 	m_pNormalTroop1->SetVerticalVelocity(100);
@@ -682,8 +664,8 @@ Game::addTankTroopToActingTroops(){
 void 
 Game::addProtectionTroopToActingTroops(){
 	AnimatedSprite* normalTroopSprite1 = m_pBackBuffer->CreateAnimatedSprite("assets\\ProtectionTroop.png");
-	normalTroopSprite1->SetFrameWidth(200);
-	normalTroopSprite1->SetFrameHeight(200);
+	normalTroopSprite1->SetWidth(200);
+	normalTroopSprite1->SetHeight(200);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 1599; i += 200){
 		normalTroopSprite1->AddFrame(i);
@@ -692,8 +674,8 @@ Game::addProtectionTroopToActingTroops(){
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
 	int x1, y1 = 0;
 	m_pMap->GetTrackStartCoords(x1, y1);
-	x1 -= (normalTroopSprite1->GetFrameWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
-	y1 -= (normalTroopSprite1->GetFrameHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
+	x1 -= (normalTroopSprite1->GetWidth() * m_pBackBuffer->GetScaleX()) / 2.0;
+	y1 -= (normalTroopSprite1->GetHeight() * m_pBackBuffer->GetScaleY()) / 2.0;
 	m_pNormalTroop1->SetPosition(x1, y1 + 10);
 	m_pNormalTroop1->SetCurrentTile(0);
 	m_pNormalTroop1->SetVerticalVelocity(100);

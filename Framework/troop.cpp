@@ -71,22 +71,22 @@ Troop::Moving(float deltaTime)
 	this->SetHorizontalVelocity(m_speed);
 	this->SetFrameRow(0);
 	
-	if (m_pAnimatedSprite->IsPaused())
+	if (((AnimatedSprite*)m_pSprite)->IsPaused())
 	{
-		m_pAnimatedSprite->Pause();
+		((AnimatedSprite*)m_pSprite)->Pause();
 	}
 
-	int x = m_x + m_pAnimatedSprite->GetFrameWidth() / 2.0; //<- added by Michael
-	int y = m_y + m_pAnimatedSprite->GetFrameHeight() / 2.0; //<- added by Michael
+	int x = m_x + m_pSprite->GetWidth() / 2.0;
+	int y = m_y + m_pSprite->GetHeight() / 2.0;
 	if (x != t_x)
 	{
 		if (x > t_x && x + m_velocityX*deltaTime < t_x)
 		{
-			m_x = t_x - m_pAnimatedSprite->GetFrameWidth() / 2.0;
+			m_x = t_x - m_pSprite->GetWidth() / 2.0;
 		}
 		else if (m_x < t_x && m_x + m_velocityX*deltaTime > t_x)
 		{
-			m_x = t_x - m_pAnimatedSprite->GetFrameWidth() / 2.0;
+			m_x = t_x - m_pSprite->GetWidth() / 2.0;
 		}
 		else
 		{
@@ -97,11 +97,11 @@ Troop::Moving(float deltaTime)
 	{
 		if (y > t_y && y + m_velocityY*deltaTime < t_y)
 		{
-			m_y = t_y - m_pAnimatedSprite->GetFrameHeight() / 2.0;
+			m_y = t_y - m_pSprite->GetHeight() / 2.0;
 		}
 		else if (y < t_y && y + m_velocityY*deltaTime > t_y)
 		{
-			m_y = t_y - m_pAnimatedSprite->GetFrameHeight() / 2.0;
+			m_y = t_y - m_pSprite->GetHeight() / 2.0;
 		}
 		else
 		{
@@ -114,9 +114,9 @@ Troop::Moving(float deltaTime)
 void
 Troop::Halting(float deltaTime)
 {
-	if (!m_pAnimatedSprite->IsPaused())
+	if (!((AnimatedSprite*)m_pSprite)->IsPaused())
 	{
-		m_pAnimatedSprite->Pause();
+		((AnimatedSprite*)m_pSprite)->Pause();
 	}
 
 	this->SetVerticalVelocity(0);

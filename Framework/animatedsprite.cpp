@@ -6,13 +6,12 @@
 #include "backbuffer.h"
 
 AnimatedSprite::AnimatedSprite()
-	: m_frameWidth(0)
-	, m_timeElapsed(0.0f)
+	: m_timeElapsed(0.0f)
 	, m_currentColumn(0)
 	, m_currentRow(0)
 	, m_paused(false)
 	, m_animating(true)
-	, m_xValues(0)
+	, m_pFrames(0)
 {
 
 }
@@ -25,25 +24,26 @@ AnimatedSprite::~AnimatedSprite()
 bool
 AnimatedSprite::Initialise(Texture& texture)
 {
-	m_frameWidth = 0;
+	SetWidth(0);
 
 	m_loop = true;
 	m_paused = false;
-	if (!m_xValues.empty()){
-		m_currentColumn = m_xValues[0];
+	if (!m_pFrames->empty()){
+		m_pFrames = new std::vector<std::pair<int, int>>();
+		m_pFrames->push_back(std::pair<int, int>(0, 0));
 	}
 	m_currentColumnNo = 0;
 	Sprite::Initialise(texture);
 
 	StartAnimating();
 
-	return (true);
+	return Sprite::Initialise(Texture& texture);
 }
 
 void
-AnimatedSprite::AddFrame(int x)
+AnimatedSprite::AddFrame(int x, int y)
 {
-	m_xValues.push_back(x);
+	m_pFrames->push_back(std::pair<int, int>(x, y));
 }
 
 void
@@ -55,7 +55,7 @@ AnimatedSprite::Process(float deltaTime)
 		//FIX THIS PROPERLY
 		if (m_timeElapsed > m_frameSpeed)
 		{
-			m_currentColumn = m_xValues[m_currentColumnNo];
+			m_currentColumn = m_pFrames.;
 			m_timeElapsed = 0;
 			if (!(m_xValues.size()<=1)){
 				if (m_currentColumnNo >= (m_xValues.size() - 1))
@@ -90,28 +90,16 @@ AnimatedSprite::SetFrameSpeed(float f)
 	m_frameSpeed = f;
 }
 
-void
-AnimatedSprite::SetFrameWidth(int w)
+int
+AnimatedSprite::GetWidth()
 {
-	m_frameWidth = w;
+	return m_pTexture->GetWidth() / m_totalColumns;
 }
 
 int
-AnimatedSprite::GetFrameWidth()
+AnimatedSprite::GetHeight()
 {
-	return m_frameWidth;
-}
-
-void
-AnimatedSprite::SetFrameHeight(int h)
-{
-	m_frameHeight = h;
-}
-
-int
-AnimatedSprite::GetFrameHeight()
-{
-	return m_frameHeight;
+	return m_pTexture->GetHeight() / m_totalRows;
 }
 
 int
@@ -119,6 +107,19 @@ AnimatedSprite::GetCurrentFrame()
 {
 	return m_currentColumn;
 }
+
+void
+AnimatedSprite::SetTotalColumns(int col)
+{
+	m_totalColumns = col;
+}
+
+void
+AnimatedSprite::SetTotalRows(int row)
+{
+	m_totalRows = row;
+}
+
 void
 AnimatedSprite::SetCurrentColumn(int currentFrame)
 {

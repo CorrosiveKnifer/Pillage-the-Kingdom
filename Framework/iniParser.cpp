@@ -31,6 +31,7 @@ IniParser::DestroyInstance()
 
 IniParser::IniParser()
 	: m_pContent(0)
+	, m_fileLastLoaded("")
 {
 	
 }
@@ -58,6 +59,11 @@ IniParser::LoadIniFile(const std::string& filename)
 	std::string section; //Section
 	std::string key; //Key
 	std::string value;
+
+	if (m_fileLastLoaded == filename)
+	{
+		return true; //File alreadly loaded.
+	}
 
 	//Check if the parser has been loaded before.
 	if (m_pContent == 0) 
@@ -101,11 +107,12 @@ IniParser::LoadIniFile(const std::string& filename)
 			}
 		}
 		file.close(); //Close the file
-		return true;
+		m_fileLastLoaded = filename;
+		return true; //Successflly loaded
 	}
 	else //failed to open the file
 	{
-		return false;
+		return false; //Failed to load
 	}
 }
 

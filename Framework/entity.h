@@ -4,7 +4,7 @@
 
 // Forward Declarations:
 class BackBuffer;
-class AnimatedSprite;
+class Sprite;
 
 class Entity
 {
@@ -13,7 +13,7 @@ public:
 	Entity();
 	~Entity();
 
-	virtual bool Initialise(AnimatedSprite* sprite);
+	virtual bool Initialise(Sprite* sprite);
 
 	virtual void Process(float deltaTime);
 	virtual void Draw(BackBuffer& backBuffer);
@@ -51,7 +51,7 @@ private:
 public:
 
 protected:
-	AnimatedSprite* m_pAnimatedSprite;
+	Sprite* m_pSprite;
 
 	float m_x;
 	float m_y;

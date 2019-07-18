@@ -1,8 +1,20 @@
-﻿  Button.cpp
+﻿  troop.cpp
+h:\pillage-the-kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
+h:\pillage-the-kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
+h:\pillage-the-kingdom\framework\troop.cpp(70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(79): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(80): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(85): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(89): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(100): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(104): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(178): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\troop.cpp(189): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   Generating code
-h:\pillage-the-kingdom\framework\iniparser.cpp(130): warning C4715: 'IniParser::GetValueAsBoolean': not all control paths return a value
-  27 of 2066 functions ( 1.3%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    39 functions had inline decision re-evaluated but remain unchanged
+h:\pillage-the-kingdom\framework\map.cpp(421): warning C4715: 'Map::HasReachedTarget': not all control paths return a value
+  147 of 2158 functions ( 6.8%) were compiled, the rest were copied from previous compilation.
+    14 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Framework.vcxproj -> H:\Pillage-the-Kingdom\Release\Framework.exe

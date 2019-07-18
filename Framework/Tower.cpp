@@ -106,8 +106,6 @@ Tower::FireProj(BackBuffer& backBuffer)
 	if (delay > 1 && m_pTarget != NULL)
 	{
 		m_rockSprite = backBuffer.CreateAnimatedSprite("assets\\rockprojectile.png");
-		m_rockSprite->SetFrameWidth(40);
-		m_rockSprite->SetFrameHeight(40);
 		m_rockSprite->SetFrameSpeed(0.25f);
 
 		for (int i = 0; i < 159; i += 40)
@@ -116,8 +114,6 @@ Tower::FireProj(BackBuffer& backBuffer)
 		}
 
 		m_arrowSprite = backBuffer.CreateAnimatedSprite("assets\\arrowprojectile.png");
-		m_arrowSprite->SetFrameWidth(70);
-		m_arrowSprite->SetFrameHeight(8);
 		m_arrowSprite->SetFrameSpeed(0.25f);
 		m_arrowSprite->AddFrame(0);
 
@@ -215,8 +211,6 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 	{
 		m_towerExplosionSprite = backBuffer.CreateAnimatedSprite("assets\\explosion.png");
 		
-		m_towerExplosionSprite->SetFrameWidth(64);
-		m_towerExplosionSprite->SetFrameHeight(64);
 		m_towerExplosionSprite->SetFrameSpeed(0.03f);
 
 		m_towerExplosionSprite->SetX(this->GetPositionX());
@@ -242,9 +236,6 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 			{
 				deadTowerSprite = backBuffer.CreateAnimatedSprite("assets\\stonetowerbroken.png");
 			}
-
-			deadTowerSprite->SetFrameWidth(200);
-			deadTowerSprite->SetFrameHeight(200);
 		}
 
 		else if (this->GetType() == VILLAGE || this->GetType() == CASTLE)
@@ -258,9 +249,6 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 				//PLACEHOLDER
 				deadTowerSprite = backBuffer.CreateAnimatedSprite("assets\\tower.png");
 			}
-
-			deadTowerSprite->SetFrameWidth(300);
-			deadTowerSprite->SetFrameHeight(300);
 		}
 
 		deadTowerSprite->SetFrameSpeed(1.0f / 5.0f);
@@ -271,9 +259,9 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 }
 
 void 
-Tower::SetSprite(AnimatedSprite* mySprite)
+Tower::SetSprite(Sprite* mySprite)
 {
-	m_pAnimatedSprite = mySprite;
+	m_pSprite = mySprite;
 }
 
 int

@@ -11,7 +11,7 @@
 #include <cassert>
 
 Entity::Entity()
-: m_pAnimatedSprite(0)
+: m_pSprite(0)
 , m_x(0.0f)
 , m_y(0.0f)
 , m_velocityX(0.0f)
@@ -27,11 +27,10 @@ Entity::~Entity()
 }
 
 bool
-Entity::Initialise(AnimatedSprite* sprite)
+Entity::Initialise(Sprite* sprite)
 {
 	assert(sprite);
-	m_pAnimatedSprite = sprite;
-	sprite->SetLooping(true);
+	m_pSprite = sprite;
 
 	return (true);
 }
@@ -39,20 +38,18 @@ Entity::Initialise(AnimatedSprite* sprite)
 void
 Entity::Process(float deltaTime)
 {
-	m_pAnimatedSprite->Process(deltaTime);
+	m_pSprite->Process(deltaTime);
 }
 
 void 
 Entity::Draw(BackBuffer& backBuffer)
 {
 	assert(m_pAnimatedSprite);
-	m_pAnimatedSprite->SetX(static_cast<int>(m_x));
-	m_pAnimatedSprite->SetY(static_cast<int>(m_y));
-	m_pAnimatedSprite->Draw(backBuffer);
+	m_pSprite->SetX(static_cast<int>(m_x));
+	m_pSprite->SetY(static_cast<int>(m_y));
+	m_pSprite->Draw(backBuffer);
 }
 
-//ADDED BY SHAKEEL. SIMPLE CIRCLE COLLISION DETECTION. PLEASE NOTE ITS ONLY CHECKING IF DISTANCE BETWEEN SPRITE IS LESS THAN OR EQUAL TO
-// SPRITE WIDTH!!!!
 bool
 Entity::IsCollidingWith(Entity& e)
 {
@@ -60,7 +57,7 @@ Entity::IsCollidingWith(Entity& e)
 	int py = e.GetPositionY() - this->GetPositionY();
 	int distance = std::sqrt((px*px) + (py*py));
 
-	if (distance <= m_pAnimatedSprite->GetFrameWidth()) // <<<<<<<<<<<<<<<<<<<< THIS IS WHAT I MEAN
+	if (distance <= m_pSprite->GetWidth())
 	{
 		return true;
 	}
@@ -82,7 +79,7 @@ Entity::IsDead() const
 }
 bool Entity::IsAnimating()
 {
-	return m_pAnimatedSprite->IsAnimating();
+	return ((AnimatedSprite*)m_pSprite)->IsAnimating();
 }
 
 void 
@@ -148,18 +145,18 @@ Entity::SetVerticalVelocity(float y)
 
 void
 Entity::SetFrameRow(int y){
-	m_pAnimatedSprite->SetCurrentRow(y);
+	((AnimatedSprite*)m_pSprite)->SetCurrentRow(y);
 }
 
 float
 Entity::GetWidth()
 {
-	return m_pAnimatedSprite->GetFrameWidth();
+	return m_pSprite->GetWidth();
 }
 
 float
 Entity::GetHeight()
 {
-	return m_pAnimatedSprite->GetFrameHeight();
+	return m_pSprite->GetHeight();
 }
 

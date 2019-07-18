@@ -15,8 +15,8 @@ public:
 
 	bool Initialise(Texture& texture);
 
-	void Process(float deltaTime);
-	void Draw(BackBuffer& backbuffer);
+	virtual void Process(float deltaTime);
+	virtual void Draw(BackBuffer& backbuffer);
 
 	void SetX(int x);
 	void SetY(int y);
@@ -30,8 +30,8 @@ public:
 	void SetCenter(int x, int y);
 	void SetHandleCenter();
 
-	int GetWidth() const;
-	int GetHeight() const;
+	virtual int GetWidth() const;
+	virtual int GetHeight() const;
 	void SetWidth(int w);
 	void SetHeight(int h);
 

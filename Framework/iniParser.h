@@ -35,6 +35,7 @@ protected:
 	static IniParser* sm_pInstance;
 	std::map<std::string, std::string>* m_pContent;
 	std::vector<std::string>* m_pSectionList;
+	std::string m_fileLastLoaded;
 
 private:
 

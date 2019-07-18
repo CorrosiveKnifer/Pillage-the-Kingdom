@@ -95,7 +95,6 @@ BackBuffer::Initialise(int width, int height)
 				}
 			}
 		}
-		IniParser::GetInstance().LoadIniFile("assets\\Animations.ini");
 	}
 
 	//Added by Michael and Jack
@@ -167,13 +166,13 @@ BackBuffer::DrawAnimatedSprite(AnimatedSprite& sprite)
 
 	srect.x = sprite.GetCurrentFrame();
 	srect.y = sprite.GetCurrentRow();
-	srect.w = sprite.GetFrameWidth();
-	srect.h = sprite.GetFrameHeight();
+	srect.w = sprite.GetWidth();
+	srect.h = sprite.GetHeight();
 
 	dest.x = sprite.GetX();
 	dest.y = sprite.GetY();
-	dest.w = sprite.GetFrameWidth() * m_scaleValX;
-	dest.h = sprite.GetFrameHeight() * m_scaleValY;
+	dest.w = sprite.GetWidth() * m_scaleValX;
+	dest.h = sprite.GetHeight() * m_scaleValY;
 
 	SDL_Point pivot;
 	pivot.x = dest.w / 2.0;
@@ -232,24 +231,24 @@ BackBuffer::CreateAnimatedSprite(const char* pcFilename)
 	Texture* pTexture = m_pTextureManager->GetTexture(pcFilename);
 
 	AnimatedSprite* pSprite = new AnimatedSprite();
-	
-	if (IniParser::GetInstance().DoesSectionExist())
-	{
+	if (IniParser::GetInstance().LoadIniFile("assets\\Animations.ini") && IniParser::GetInstance().DoesSectionExist(pcFilename))
+	{ //Is the correct file loaded? and then does the sprite exist within the ini file.
+		pSprite->SetFrameSpeed(IniParser::GetInstance().GetValueAsFloat(pcFilename, "Speed"));
+		pSprite->SetTotalColumns(IniParser::GetInstance().GetValueAsInt(pcFilename, "Column"));
+		pSprite->SetTotalRows(IniParser::GetInstance().GetValueAsInt(pcFilename, "Row"));
+		pSprite->SetCurrentColumnNo(IniParser::GetInstance().GetValueAsInt(pcFilename, "StartFrame"));
+		pSprite->SetLooping(IniParser::GetInstance().GetValueAsBoolean(pcFilename, "IsLooping"));
+	}
+	else
+	{ //Load the sprite with default settings
 
 	}
-	pSprite->SetFrameSpeed(IniParser::GetInstance().GetValueAsFloat(pcFilename, "Speed"));
-	pSprite->SetFrameWidth(IniParser::GetInstance().GetValueAsInt(pcFilename, "Width"));
-	pSprite->SetFrameHeight(IniParser::GetInstance().GetValueAsInt(pcFilename, "Height"));
-	//pSprite->SetFrameColumns(IniParser::GetInstance().GetValueAsInt(pcFilename, Column));
-	//pSprite->SetFrameRows(IniParser::GetInstance().GetValueAsInt(pcFilename, Row));
-	//pSprite->SetCurrentFrameNo(IniParser::GetInstance().GetValueAsInt(pcFilename, StartFrame));
-	pSprite->SetLooping(IniParser::GetInstance().GetValueAsBoolean(pcFilename, "IsLooping"));
 
 	if (!pSprite->Initialise(*pTexture))
 	{
 		LogManager::GetInstance().Log("Sprite Failed to Create!");
 	}
-
+	
 	return (pSprite);
 }
 

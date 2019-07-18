@@ -242,7 +242,6 @@ MapSelectScreen::SetUpGrid()
 	m_pButtonMask = new Mask();
 
 	//Start node == plains
-	IniParser::GetInstance().LoadIniFile("assets\\tile.ini");
 	AnimatedSprite* sprite = SetUpButton(Map::Style::PLAIN);
 	Node* temp = new Node();
 	temp->node = new Button();
@@ -255,8 +254,8 @@ MapSelectScreen::SetUpGrid()
 	nodeIter = m_nodes.insert(nodeIter, temp);
 	m_pMapStyles->insert(std::pair<Button*, Map::Style>(temp->node, Map::Style::PLAIN));
 
-	int x = m_pBackBuffer->GetWidth() * 3.0 / 4.0 - sprite->GetFrameWidth() / 2.0;
-	int y = m_pBackBuffer->GetHeight() * 3.0 / 4.0 - sprite->GetFrameHeight() / 2.0;
+	int x = m_pBackBuffer->GetWidth() * 3.0 / 4.0 - sprite->GetWidth() / 2.0;
+	int y = m_pBackBuffer->GetHeight() * 3.0 / 4.0 - sprite->GetHeight() / 2.0;
 	temp->node->SetX(x);
 	temp->node->SetY(y);
 	temp->node->SetEnabled(true);
@@ -273,8 +272,8 @@ MapSelectScreen::SetUpGrid()
 	nodeIter = m_nodes.insert(nodeIter, temp);
 	m_pMapStyles->insert(std::pair<Button*, Map::Style>(temp->node, Map::Style::DESERT));
 
-	x = m_pBackBuffer->GetWidth() * 7.0 / 8.0 - sprite->GetFrameWidth() / 2.0;
-	y = m_pBackBuffer->GetHeight() * 5.0 / 8.0 - sprite->GetFrameHeight() / 2.0;
+	x = m_pBackBuffer->GetWidth() * 7.0 / 8.0 - sprite->GetWidth() / 2.0;
+	y = m_pBackBuffer->GetHeight() * 5.0 / 8.0 - sprite->GetHeight() / 2.0;
 	temp->node->SetX(x);
 	temp->node->SetY(y);
 	temp->node->SetEnabled(false);
@@ -291,8 +290,8 @@ MapSelectScreen::SetUpGrid()
 	nodeIter = m_nodes.insert(nodeIter, temp);
 	m_pMapStyles->insert(std::pair<Button*, Map::Style>(temp->node, Map::Style::SNOWY));
 
-	x = m_pBackBuffer->GetWidth() * 5.0 / 8.0 - sprite->GetFrameWidth() / 2.0;
-	y = m_pBackBuffer->GetHeight() * 5.0 / 8.0 - sprite->GetFrameHeight() / 2.0;
+	x = m_pBackBuffer->GetWidth() * 5.0 / 8.0 - sprite->GetWidth() / 2.0;
+	y = m_pBackBuffer->GetHeight() * 5.0 / 8.0 - sprite->GetHeight() / 2.0;
 	temp->node->SetX(x);
 	temp->node->SetY(y);
 	temp->node->SetEnabled(false);
@@ -309,8 +308,8 @@ MapSelectScreen::SetUpGrid()
 	nodeIter = m_nodes.insert(nodeIter, temp);
 	m_pMapStyles->insert(std::pair<Button*, Map::Style>(temp->node, Map::Style::HELLSCAPE));
 
-	x = m_pBackBuffer->GetWidth() * 3.0 / 4.0 - sprite->GetFrameWidth() / 2.0;
-	y = m_pBackBuffer->GetHeight()/ 2.0 - sprite->GetFrameHeight() / 2.0;
+	x = m_pBackBuffer->GetWidth() * 3.0 / 4.0 - sprite->GetWidth() / 2.0;
+	y = m_pBackBuffer->GetHeight()/ 2.0 - sprite->GetHeight() / 2.0;
 	temp->node->SetX(x);
 	temp->node->SetY(y);
 	temp->node->SetEnabled(false);
@@ -324,6 +323,7 @@ AnimatedSprite*
 MapSelectScreen::SetUpButton(Map::Style style)
 {
 	AnimatedSprite* sprite;
+	IniParser::GetInstance().LoadIniFile("assets\\tile.ini");
 	switch (style)
 	{
 	case Map::Style::PLAIN:
@@ -340,8 +340,8 @@ MapSelectScreen::SetUpButton(Map::Style style)
 		break;
 	}
 	sprite->SetFrameSpeed(0.03f);
-	sprite->SetFrameWidth(50);
-	sprite->SetFrameHeight(50);
+	sprite->SetWidth(50);
+	sprite->SetHeight(50);
 	sprite->AddFrame(0);
 	sprite->AddFrame(50);
 	return sprite;

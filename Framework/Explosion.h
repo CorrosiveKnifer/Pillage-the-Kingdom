@@ -10,7 +10,7 @@ public:
 	Explosion();
 	~Explosion();
 
-	bool Initialise(AnimatedSprite* sprite, Tower* aTower);
+	bool Initialise(Sprite* sprite, Tower* aTower);
 	void Process(float deltaTime);
 	void Draw(BackBuffer& backBuffer);
 
