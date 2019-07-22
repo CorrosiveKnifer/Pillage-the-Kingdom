@@ -7,8 +7,8 @@
 
 AnimatedSprite::AnimatedSprite()
 	: m_timeElapsed(0.0f)
-	, m_currentColumn(0)
-	, m_currentRow(0)
+	, m_currentColumnNo(0)
+	, m_currentRowNo(0)
 	, m_paused(false)
 	, m_animating(true)
 	, m_pFrames(0)
@@ -36,8 +36,9 @@ AnimatedSprite::Initialise(Texture& texture)
 	Sprite::Initialise(texture);
 
 	StartAnimating();
+	Sprite::Initialise(texture);
 
-	return Sprite::Initialise(Texture& texture);
+	return true;
 }
 
 void
@@ -55,10 +56,10 @@ AnimatedSprite::Process(float deltaTime)
 		//FIX THIS PROPERLY
 		if (m_timeElapsed > m_frameSpeed)
 		{
-			m_currentColumn = m_pFrames.;
+			m_currentColumn = m_pFrames->at(m_currentColumnNo);
 			m_timeElapsed = 0;
-			if (!(m_xValues.size()<=1)){
-				if (m_currentColumnNo >= (m_xValues.size() - 1))
+			if (!(m_pFrames->size()<=1)){
+				if (m_currentColumnNo >= (m_pFrames->size() - 1))
 				{
 					if (m_loop)
 					{
@@ -102,7 +103,7 @@ AnimatedSprite::GetHeight()
 	return m_pTexture->GetHeight() / m_totalRows;
 }
 
-int
+std::pair<int, int>
 AnimatedSprite::GetCurrentFrame()
 {
 	return m_currentColumn;
@@ -123,7 +124,7 @@ AnimatedSprite::SetTotalRows(int row)
 void
 AnimatedSprite::SetCurrentColumn(int currentFrame)
 {
-	m_currentColumn = currentFrame;
+	m_currentColumnNo = currentFrame;
 }
 
 void
@@ -150,7 +151,7 @@ AnimatedSprite::StartAnimating()
 	m_animating = true;
 
 	m_timeElapsed = 0;
-	m_currentColumn = 0;
+	m_currentColumnNo = 0;
 }
 
 bool
@@ -174,12 +175,12 @@ void
 AnimatedSprite::SetCurrentColumnNo(int currentFrameNo)
 {
 	m_currentColumnNo = currentFrameNo;
-	m_currentColumn = m_xValues[m_currentColumnNo];
+	m_currentColumn = m_pFrames->at(m_currentColumnNo);
 }
 int
 AnimatedSprite::GetNoOfFrames()
 {
-	return m_xValues.size();
+	return m_pFrames->size();
 }
 void
 AnimatedSprite::SetCurrentRow(int row)

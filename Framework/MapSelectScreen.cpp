@@ -323,7 +323,7 @@ AnimatedSprite*
 MapSelectScreen::SetUpButton(Map::Style style)
 {
 	AnimatedSprite* sprite;
-	IniParser::GetInstance().LoadIniFile("assets\\tile.ini");
+	//IniParser::GetInstance().LoadIniFile("assets\\tile.ini");
 	switch (style)
 	{
 	case Map::Style::PLAIN:
@@ -339,11 +339,7 @@ MapSelectScreen::SetUpButton(Map::Style style)
 		sprite = m_pBackBuffer->CreateAnimatedSprite(IniParser::GetInstance().GetValueAsString("select", "hellscape").c_str());
 		break;
 	}
-	sprite->SetFrameSpeed(0.03f);
-	sprite->SetWidth(50);
-	sprite->SetHeight(50);
-	sprite->AddFrame(0);
-	sprite->AddFrame(50);
+
 	return sprite;
 }
 

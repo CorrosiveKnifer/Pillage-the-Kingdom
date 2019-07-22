@@ -1,20 +1,127 @@
-﻿  troop.cpp
+﻿  animatedsprite.cpp
+h:\pillage-the-kingdom\framework\animatedsprite.cpp(40): error C2275: 'Texture': illegal use of this type as an expression
+  h:\pillage-the-kingdom\framework\backbuffer.h(9): note: see declaration of 'Texture'
+h:\pillage-the-kingdom\framework\animatedsprite.cpp(58): error C2059: syntax error: ';'
+h:\pillage-the-kingdom\framework\animatedsprite.cpp(60): error C2065: 'm_xValues': undeclared identifier
+h:\pillage-the-kingdom\framework\animatedsprite.cpp(61): error C2065: 'm_xValues': undeclared identifier
+h:\pillage-the-kingdom\framework\animatedsprite.cpp(177): error C2065: 'm_xValues': undeclared identifier
+h:\pillage-the-kingdom\framework\animatedsprite.cpp(182): error C2065: 'm_xValues': undeclared identifier
+  game.cpp
 h:\pillage-the-kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
 h:\pillage-the-kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
-h:\pillage-the-kingdom\framework\troop.cpp(70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(79): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(80): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(85): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(89): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(100): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(104): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(178): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-h:\pillage-the-kingdom\framework\troop.cpp(189): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Generating code
-h:\pillage-the-kingdom\framework\map.cpp(421): warning C4715: 'Map::HasReachedTarget': not all control paths return a value
-  147 of 2158 functions ( 6.8%) were compiled, the rest were copied from previous compilation.
-    14 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  Framework.vcxproj -> H:\Pillage-the-Kingdom\Release\Framework.exe
+h:\pillage-the-kingdom\framework\tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
+h:\pillage-the-kingdom\framework\game.cpp(128): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(131): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(134): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(193): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(199): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(203): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(206): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(207): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(208): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(214): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(279): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(294): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(338): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(421): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(430): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(476): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(483): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(484): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(485): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(500): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(506): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(507): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(508): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(522): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(527): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(530): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(531): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(532): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(557): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(558): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(597): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(603): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(604): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(623): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(629): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(630): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(631): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(647): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(653): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(654): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(655): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(671): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\game.cpp(677): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(678): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(679): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(690): warning C4018: '<': signed/unsigned mismatch
+h:\pillage-the-kingdom\framework\game.cpp(691): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(692): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\game.cpp(698): warning C4018: '<': signed/unsigned mismatch
+  MapSelectScreen.cpp
+h:\pillage-the-kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
+h:\pillage-the-kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(257): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(258): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(275): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(276): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(293): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(294): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(311): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(312): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(317): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(371): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(380): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(388): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(396): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(409): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(410): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(411): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(412): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(413): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(414): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(415): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(416): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(418): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(419): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(421): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\mapselectscreen.cpp(422): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  MenuScreen.cpp
+h:\pillage-the-kingdom\framework\menuscreen.cpp(84): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\menuscreen.cpp(85): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  normaltroop.cpp
+h:\pillage-the-kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
+h:\pillage-the-kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
+h:\pillage-the-kingdom\framework\normaltroop.cpp(41): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+  Tower.cpp
+h:\pillage-the-kingdom\framework\tower.h(35): warning C4091: 'static ': ignored on left of 'Tower::TowerType' when no variable is declared
+h:\pillage-the-kingdom\framework\map.h(25): warning C4091: 'static ': ignored on left of 'Map::Style' when no variable is declared
+h:\pillage-the-kingdom\framework\map.h(34): warning C4091: 'static ': ignored on left of 'Map::select' when no variable is declared
+h:\pillage-the-kingdom\framework\tower.cpp(69): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\tower.cpp(70): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\tower.cpp(71): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\tower.cpp(113): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\tower.cpp(118): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\tower.cpp(216): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\tower.cpp(217): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+h:\pillage-the-kingdom\framework\tower.cpp(221): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'
+h:\pillage-the-kingdom\framework\tower.cpp(255): error C2660: 'AnimatedSprite::AddFrame': function does not take 1 arguments
+  h:\pillage-the-kingdom\framework\animatedsprite.h(19): note: see declaration of 'AnimatedSprite::AddFrame'

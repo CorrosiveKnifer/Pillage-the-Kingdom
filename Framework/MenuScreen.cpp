@@ -65,16 +65,16 @@ MenuScreen::Initialise(BackBuffer* backBuffer)
 	std::vector<Button* > temp;
 	std::vector<Button* >::iterator iter;
 	AnimatedSprite* playSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\playButton.png");
-	playSprite->AddFrame(0);
-	playSprite->AddFrame(200);
+	//playSprite->AddFrame(0);
+	//playSprite->AddFrame(200);
 	Button* playButton = new Button();
 	playButton->Initialise(playSprite, 0);
 	iter = temp.end();
 	iter = temp.insert(iter, playButton);
 
 	AnimatedSprite* quitSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\quitButton.png");
-	quitSprite->AddFrame(0);
-	quitSprite->AddFrame(200);
+	//quitSprite->AddFrame(0);
+	//quitSprite->AddFrame(200);
 	Button* quitButton = new Button();
 	quitButton->Initialise(quitSprite, 1);
 	iter = temp.end();

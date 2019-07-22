@@ -31,7 +31,7 @@ public:
 	int GetCurrentColumn();
 	void SetCurrentColumnNo(int currentFrameNo);
 
-	int GetCurrentFrame();
+	std::pair<int, int> GetCurrentFrame();
 	int GetNoOfFrames();
 	
 	void SetTotalRows(int row);
@@ -55,7 +55,7 @@ private:
 public:
 
 protected:
-	std::vector<std::pair<int, int>>* m_pFrames;
+	std::vector<std::pair<int, int>>* m_pFrames; //NEEDS TO BE 2 DIMENTIONS
 
 	float m_frameSpeed;
 	int m_frameHeight;
@@ -64,9 +64,9 @@ protected:
 	int m_totalRows;
 
 	float m_timeElapsed;
-	int m_currentColumn;
+	std::pair<int, int> m_currentFrame;
 	int m_currentColumnNo;
-	int m_currentRow;
+	int m_currentRowNo;
 
 	bool m_paused;
 	bool m_loop;
