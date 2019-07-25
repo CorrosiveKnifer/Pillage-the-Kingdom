@@ -81,7 +81,7 @@ MenuScreen::Initialise(BackBuffer* backBuffer)
 	iter = temp.insert(iter, quitButton);
 
 	m_pButtonMask = new Mask();
-	int x = m_pBackBuffer->GetWidth()* 9.0 / 16.0;
+	int x = m_pBackBuffer->GetWidth() * 9.0 / 16.0;
 	int y = m_pBackBuffer->GetHeight() * 7.0 / 8.0;
 	m_pButtonMask->Initialise(temp, 100, x, y, false);
 

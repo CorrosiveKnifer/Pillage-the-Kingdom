@@ -110,12 +110,12 @@ Tower::FireProj(BackBuffer& backBuffer)
 
 		for (int i = 0; i < 159; i += 40)
 		{
-			m_rockSprite->AddFrame(i);
+			//m_rockSprite->AddFrame(i);
 		}
 
 		m_arrowSprite = backBuffer.CreateAnimatedSprite("assets\\arrowprojectile.png");
 		m_arrowSprite->SetFrameSpeed(0.25f);
-		m_arrowSprite->AddFrame(0);
+		//m_arrowSprite->AddFrame(0);
 
 		std::vector<Projectile* >::iterator iter = projectiles.begin();
 
@@ -218,7 +218,7 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 
 		for (int i = 0; i < 319; i += 64)
 		{
-			m_towerExplosionSprite->AddFrame(i);
+			//m_towerExplosionSprite->AddFrame(i);
 		}
 		m_spawnedExplosion = true;
 		m_pExplosion = new Explosion();
@@ -252,7 +252,7 @@ Tower::PlayDeathAnimation(BackBuffer& backBuffer)
 		}
 
 		deadTowerSprite->SetFrameSpeed(1.0f / 5.0f);
-		deadTowerSprite->AddFrame(0);
+		//deadTowerSprite->AddFrame(0);
 
 		this->SetSprite(deadTowerSprite);
 	}

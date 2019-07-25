@@ -4,7 +4,7 @@
 
 // Library includes:
 #include <SDL.h>
-
+#include <String>
 class Texture
 {
 	//Member Methods:
@@ -16,7 +16,7 @@ public:
 
 	int GetWidth() const;
 	int GetHeight() const;
-
+	std::string GetFileName();
 	SDL_Texture* GetTexture();
 
 protected:
@@ -36,7 +36,7 @@ protected:
 	int m_height;
 
 	SDL_RendererFlip m_flip;
-
+	std::string m_fileName;
 private:
 
 };

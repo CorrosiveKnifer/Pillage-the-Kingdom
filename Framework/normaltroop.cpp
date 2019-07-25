@@ -38,7 +38,7 @@ NormalTroop::Moving(float deltaTime)
 void
 NormalTroop::iniAnimation()
 {
-	((AnimatedSprite*)m_pSprite)->AddFrame(4);
+	//((AnimatedSprite*)m_pSprite)->AddFrame(4);
 	((AnimatedSprite*)m_pSprite)->SetWidth(91);
 	((AnimatedSprite*)m_pSprite)->SetLooping(true);
 }

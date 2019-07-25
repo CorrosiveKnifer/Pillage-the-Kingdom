@@ -163,9 +163,10 @@ BackBuffer::DrawAnimatedSprite(AnimatedSprite& sprite)
 {
 	SDL_Rect srect;
 	SDL_Rect dest;
+	std::pair<int, int> frame = sprite.GetCurrentFrame();
 
-	srect.x = sprite.GetCurrentFrame();
-	srect.y = sprite.GetCurrentRow();
+	srect.x = frame.first;
+	srect.y = frame.second;
 	srect.w = sprite.GetWidth();
 	srect.h = sprite.GetHeight();
 
@@ -231,19 +232,7 @@ BackBuffer::CreateAnimatedSprite(const char* pcFilename)
 	Texture* pTexture = m_pTextureManager->GetTexture(pcFilename);
 
 	AnimatedSprite* pSprite = new AnimatedSprite();
-	if (IniParser::GetInstance().LoadIniFile("assets\\Animations.ini") && IniParser::GetInstance().DoesSectionExist(pcFilename))
-	{ //Is the correct file loaded? and then does the sprite exist within the ini file.
-		pSprite->SetFrameSpeed(IniParser::GetInstance().GetValueAsFloat(pcFilename, "Speed"));
-		pSprite->SetTotalColumns(IniParser::GetInstance().GetValueAsInt(pcFilename, "Column"));
-		pSprite->SetTotalRows(IniParser::GetInstance().GetValueAsInt(pcFilename, "Row"));
-		pSprite->SetCurrentColumnNo(IniParser::GetInstance().GetValueAsInt(pcFilename, "StartFrame"));
-		pSprite->SetLooping(IniParser::GetInstance().GetValueAsBoolean(pcFilename, "IsLooping"));
-	}
-	else
-	{ //Load the sprite with default settings
-
-	}
-
+	
 	if (!pSprite->Initialise(*pTexture))
 	{
 		LogManager::GetInstance().Log("Sprite Failed to Create!");

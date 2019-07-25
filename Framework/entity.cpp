@@ -145,7 +145,7 @@ Entity::SetVerticalVelocity(float y)
 
 void
 Entity::SetFrameRow(int y){
-	((AnimatedSprite*)m_pSprite)->SetCurrentRow(y);
+	((AnimatedSprite*)m_pSprite)->SetCurrentRowNo(y);
 }
 
 float

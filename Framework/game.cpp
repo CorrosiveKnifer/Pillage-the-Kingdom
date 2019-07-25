@@ -125,13 +125,13 @@ Game::Initialise(BackBuffer* backBuffer)
 	//BUTTONS
 	//Create sprites for buttons. USING ONE SPRITE FOR ALL BUTTONS ATM. I suggest a sprite sheet. 
 	AnimatedSprite* NormalButtonSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\troopbutton.png");
-	NormalButtonSprite->AddFrame(0);
+	//NormalButtonSprite->AddFrame(0);
 
 	AnimatedSprite* TankButtonSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\troopbuttonTANK.png");
-	TankButtonSprite->AddFrame(0);
+	//TankButtonSprite->AddFrame(0);
 
 	AnimatedSprite* ProtButtonSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\troopbuttonPROT.png");
-	ProtButtonSprite->AddFrame(0);
+	//ProtButtonSprite->AddFrame(0);
 
 	//Create buttons using the sprite and assign its ID
 	Button* SpawnNormalTroop = new Button();
@@ -190,13 +190,13 @@ Game::Initialise(BackBuffer* backBuffer)
 	AnimatedSprite* normalTroopSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\NormalTroop.png");
 	normalTroopSprite->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
-		normalTroopSprite->AddFrame(i);
+		//normalTroopSprite->AddFrame(i);
 	}
 		
 	//Towers
 	AnimatedSprite* WTowerSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\woodentower.png");
 	WTowerSprite->SetFrameSpeed(1 / 5);
-	WTowerSprite->AddFrame(0);
+	//WTowerSprite->AddFrame(0);
 	
 	std::vector<Map::Coords* > towerPos = m_pMap->GetAllTowerCoords();
 	std::vector<Tower*>::iterator towerIter = m_Towers.begin();
@@ -211,7 +211,7 @@ Game::Initialise(BackBuffer* backBuffer)
 	//Village by Michael
 	AnimatedSprite* villageSprite = m_pBackBuffer->CreateAnimatedSprite("assets\\village.png");
 	villageSprite->SetFrameSpeed(1.0);
-	villageSprite->AddFrame(0);
+	//villageSprite->AddFrame(0);
 
 	m_pVillage = TowerFactory::CreateTower(villageSprite, Tower::VILLAGE);
 	m_Towers.push_back(m_pVillage);
@@ -473,7 +473,7 @@ Game::DebugRemakeMap()
 	normalTroop->SetHeight(50);
 	normalTroop->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50) {
-		normalTroop->AddFrame(i);
+		//normalTroop->AddFrame(i);
 	}
 	m_pNormalTroop = TroopFactory::CreateNormalTroop();
 	m_pNormalTroop->Initialise(normalTroop);
@@ -497,7 +497,7 @@ Game::DebugRemakeMap()
 	normalTroopSprite1->SetHeight(50);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
-		normalTroopSprite1->AddFrame(i);
+		//normalTroopSprite1->AddFrame(i);
 	}
 	m_pNormalTroop1 = TroopFactory::CreateNormalTroop();
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
@@ -519,7 +519,7 @@ Game::DebugRemakeMap()
 	WTowerSprite->SetWidth(200);
 	WTowerSprite->SetHeight(200);
 	WTowerSprite->SetFrameSpeed(1 / 5);
-	WTowerSprite->AddFrame(0);
+	//WTowerSprite->AddFrame(0);
 
 	//ADDED by Michael:
 	std::vector<Map::Coords* > towerPos = m_pMap->GetAllTowerCoords();
@@ -594,7 +594,7 @@ Game::iniActingTroop(){
 	normalTroopSprite->SetHeight(50);
 	normalTroopSprite->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
-		normalTroopSprite->AddFrame(i);
+		//normalTroopSprite->AddFrame(i);
 	}
 	Troop* m_pNormalTroop1 = TroopFactory::CreateNormalTroop();
 	m_pNormalTroop1->Initialise(normalTroopSprite);
@@ -620,7 +620,7 @@ Game::addNormalTroopToActingTroops(){
 	normalTroopSprite1->SetHeight(50);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 399; i += 50){
-		normalTroopSprite1->AddFrame(i);
+		//normalTroopSprite1->AddFrame(i);
 	}
 	Troop* m_pNormalTroop1 = TroopFactory::CreateNormalTroop();
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
@@ -644,7 +644,7 @@ Game::addTankTroopToActingTroops(){
 	normalTroopSprite1->SetHeight(50);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 99; i += 50){
-		normalTroopSprite1->AddFrame(i);
+		//normalTroopSprite1->AddFrame(i);
 	}
 	TankTroop* m_pNormalTroop1 = TroopFactory::CreateTankTroop();
 	m_pNormalTroop1->Initialise(normalTroopSprite1);
@@ -668,7 +668,7 @@ Game::addProtectionTroopToActingTroops(){
 	normalTroopSprite1->SetHeight(200);
 	normalTroopSprite1->SetFrameSpeed(0.03f);
 	for (int i = 0; i < 1599; i += 200){
-		normalTroopSprite1->AddFrame(i);
+		//normalTroopSprite1->AddFrame(i);
 	}
 	ProtectionTroop* m_pNormalTroop1 = TroopFactory::CreateProtectionTroop();
 	m_pNormalTroop1->Initialise(normalTroopSprite1);

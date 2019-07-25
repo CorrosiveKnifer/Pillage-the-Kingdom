@@ -17,6 +17,7 @@ Texture::Texture()
 : m_pTexture(0)
 , m_height(0)
 , m_width(0)
+, m_fileName("")
 {
 	m_flip = SDL_FLIP_NONE;
 }
@@ -56,6 +57,8 @@ Texture::Initialise(const char* pcFilename, SDL_Renderer* pRenderer)
 
 	SDL_QueryTexture(m_pTexture, 0, 0, &m_width, &m_height);
 
+	m_fileName = pcFilename;
+
 	return (m_pTexture != 0);
 }
 
@@ -78,4 +81,10 @@ SDL_Texture*
 Texture::GetTexture()
 {
 	return (m_pTexture);
+}
+
+std::string
+Texture::GetFileName()
+{
+	return m_fileName;
 }

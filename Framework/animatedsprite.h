@@ -16,7 +16,6 @@ public:
 	~AnimatedSprite();
 
 	bool Initialise(Texture& texture);
-	void AddFrame(int x, int y);
 
 	void Process(float deltaTime);
 	void Draw(BackBuffer& backbuffer);
@@ -27,15 +26,14 @@ public:
 	int GetHeight();
 
 	void SetTotalColumns(int col);
-	void SetCurrentColumn(int currentFrame);
-	int GetCurrentColumn();
+	int GetCurrentColumnNo();
 	void SetCurrentColumnNo(int currentFrameNo);
 
 	std::pair<int, int> GetCurrentFrame();
 	int GetNoOfFrames();
 	
 	void SetTotalRows(int row);
-	void SetCurrentRow(int row);
+	void SetCurrentRowNo(int row);
 	int GetCurrentRow();
 
 	void Pause();

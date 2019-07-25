@@ -4,6 +4,7 @@
 // Local includes:
 #include "texture.h"
 #include "backbuffer.h"
+#include "iniParser.h"
 
 AnimatedSprite::AnimatedSprite()
 	: m_timeElapsed(0.0f)
@@ -25,26 +26,50 @@ bool
 AnimatedSprite::Initialise(Texture& texture)
 {
 	SetWidth(0);
-
+	
+	std::string fileName = texture.GetFileName();
 	m_loop = true;
 	m_paused = false;
-	if (!m_pFrames->empty()){
-		m_pFrames = new std::vector<std::pair<int, int>>();
-		m_pFrames->push_back(std::pair<int, int>(0, 0));
+	m_pFrames = new std::vector<std::pair<int, int>>();
+
+	int start = 0;
+
+	if (IniParser::GetInstance().LoadIniFile("assets\\Animations.ini") && IniParser::GetInstance().DoesSectionExist(fileName))
+	{ //Is the correct file loaded? and then does the sprite exist within the ini file.
+		this->SetFrameSpeed(IniParser::GetInstance().GetValueAsFloat(fileName, "Speed"));
+		this->SetTotalColumns(IniParser::GetInstance().GetValueAsInt(fileName, "Column"));
+		this->SetTotalRows(IniParser::GetInstance().GetValueAsInt(fileName, "Row"));
+		start = IniParser::GetInstance().GetValueAsInt(fileName, "StartFrame");
+		this->SetLooping(IniParser::GetInstance().GetValueAsBoolean(fileName, "IsLooping"));
+	
+	
 	}
-	m_currentColumnNo = 0;
-	Sprite::Initialise(texture);
+	else
+	{ //Load the sprite with default settings
+
+	}
+
+	if (!m_pFrames->empty()){
+
+		m_pFrames = new std::vector<std::pair<int, int>>();
+		//(total columns*currentRow + currentColumn)
+		for (int m = 0; m < m_width; m++)
+		{
+			int heightVal = m_height/m_totalRows * m;
+			for (int n = 0; n < m_height; n++)
+			{
+				int widthVal = m_width / m_totalColumns * n;
+				std::pair<int, int> temp;
+				temp.first = widthVal;
+				temp.second = heightVal;
+			}
+		}
+	}
+	m_currentColumnNo = start;
 
 	StartAnimating();
-	Sprite::Initialise(texture);
 
-	return true;
-}
-
-void
-AnimatedSprite::AddFrame(int x, int y)
-{
-	m_pFrames->push_back(std::pair<int, int>(x, y));
+	return Sprite::Initialise(texture);
 }
 
 void
@@ -56,7 +81,7 @@ AnimatedSprite::Process(float deltaTime)
 		//FIX THIS PROPERLY
 		if (m_timeElapsed > m_frameSpeed)
 		{
-			m_currentColumn = m_pFrames->at(m_currentColumnNo);
+			m_currentFrame = m_pFrames->at(m_currentColumnNo);
 			m_timeElapsed = 0;
 			if (!(m_pFrames->size()<=1)){
 				if (m_currentColumnNo >= (m_pFrames->size() - 1))
@@ -106,7 +131,7 @@ AnimatedSprite::GetHeight()
 std::pair<int, int>
 AnimatedSprite::GetCurrentFrame()
 {
-	return m_currentColumn;
+	return m_currentFrame;
 }
 
 void
@@ -119,12 +144,6 @@ void
 AnimatedSprite::SetTotalRows(int row)
 {
 	m_totalRows = row;
-}
-
-void
-AnimatedSprite::SetCurrentColumn(int currentFrame)
-{
-	m_currentColumnNo = currentFrame;
 }
 
 void
@@ -167,28 +186,37 @@ AnimatedSprite::SetLooping(bool b)
 }
 
 int
-AnimatedSprite::GetCurrentColumn()
+AnimatedSprite::GetCurrentColumnNo()
 {
 	return m_currentColumnNo;
 }
+
 void
 AnimatedSprite::SetCurrentColumnNo(int currentFrameNo)
 {
 	m_currentColumnNo = currentFrameNo;
-	m_currentColumn = m_pFrames->at(m_currentColumnNo);
+	if (!m_pFrames->empty())
+	{
+		m_currentFrame = m_pFrames->at(m_totalColumns * m_currentRowNo + m_currentColumnNo);
+	}
 }
 int
 AnimatedSprite::GetNoOfFrames()
 {
 	return m_pFrames->size();
 }
+
 void
-AnimatedSprite::SetCurrentRow(int row)
+AnimatedSprite::SetCurrentRowNo(int row)
 {
-	m_currentRow = row;
+	m_currentRowNo = row;
+	if (!m_pFrames->empty())
+	{
+		m_currentFrame = m_pFrames->at(m_totalColumns * m_currentRowNo + m_currentColumnNo);
+	}
 }
 int
 AnimatedSprite::GetCurrentRow()
 {
-	return m_currentRow;
+	return m_currentRowNo;
 }
